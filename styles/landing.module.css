@@ -1,0 +1,276 @@
+header.landing-page {
+    height: 800px;
+}
+
+header.landing-page h1 {
+    margin-top: 50px;
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 60px;
+    line-height: 93px;
+    color: #3A3D42;
+}
+
+header.landing-page h1 span {
+    color: #6379F4;
+}
+
+header.landing-page p {
+    margin-top: 30px;
+    margin-bottom: 50px;
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 31px;
+    color: #3A3D42;
+}
+
+.bg-landing-page {
+    position: absolute;
+    top: -120px;
+    height: 658px;
+    width: 652px;
+    background: #6379F4;
+    border-radius: 0px 0px 0px 200px;
+    z-index: -1;
+}
+
+.image-header {
+    position: absolute;
+    top: 90px;
+    right: 80px;
+}
+
+.bgHeader {
+    height: 229px;
+}
+
+/* section */
+.landing-page-section {
+    padding-top: 50px;
+    background: #EFF0FC;
+    height: 700px;
+}
+
+.landing-page-section h1 {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 60px;
+    line-height: 93px;
+    text-align: center;
+}
+
+.landing-page-section span {
+    color: #6379F4;
+}
+
+.landing-page-section p {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 31px;
+    text-align: center;
+    color: #3A3D42;
+}
+
+.landing-page-section h4 {
+    margin-top: 30px;
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 31px;
+    color: #3A3D42;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.card-section {
+    height: 344px;
+    width: 367px;
+    border-radius: 25px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+    margin-right: 10px;
+    margin-top: 50px;
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+.circle-section {
+    height: 60px;
+    width: 60px;
+    border-radius: 25px;
+    background: rgba(71, 58, 209, 0.1);
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+.iconLanding {
+    color: #6379F4;
+    margin-top: 20px;
+    margin-left: 22px;
+}
+
+.section-trusted {
+    padding-top: 70px;
+    height: 400px;
+    background: #fff;
+}
+
+.section-trusted h1 {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 60px;
+    line-height: 93px;
+    color: #3A3D42;
+}
+
+.section-trusted span {
+    color: #6379F4;
+}
+
+.logo-airbnb {
+    margin-top: 35px;
+    margin-right: 20px;
+}
+
+.logo-canon {
+    margin-right: 40px;
+}
+
+.logo-dell {
+    margin-top: 10px;
+}
+
+.logo-microsoft {
+    margin-right: 60px;
+}
+
+.logo-dropbox {
+    margin-right: 50px;
+}
+
+.logo-hm {
+    margin-top: 10px;
+}
+
+/* trusted */
+.section-feature {
+    padding-top: 80px;
+    height: 800px;
+    background: #EFF0FC;
+}
+
+.section-feature h1 {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 60px;
+    line-height: 93px;
+    color: #3A3D42;
+}
+
+.section-feature span {
+    color: #6379F4;
+}
+
+.section-feature .card-feature {
+    height: 127px;
+    width: 580px;
+    padding-top: 30px;
+    padding-left: 20px;
+    margin-bottom: 30px;
+    border-radius: 25px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+    border-radius: 25px;
+}
+
+.section-feature .card-feature h6 {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 31px;
+    color: #3A3D42;
+}
+
+.section-feature .card-feature p {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 31px;
+    color: rgba(58, 61, 66, 0.9);
+}
+
+.section-feature .card-feature span {
+    color: #6379F4;
+}
+
+/* testimoni */
+.section-testimoni {
+    height: 780px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.section-testimoni h1 {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 60px;
+    line-height: 93px;
+    color: #3A3D42;
+    text-align: center;
+}
+
+.section-testimoni span {
+    color: #6379F4;
+}
+
+.section-testimoni p {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 31px;
+    text-align: center;
+    color: #3A3D42;
+}
+
+.card-testimoni {
+    margin-top: 80px;
+    margin-right: 10px;
+    height: 344px;
+    width: 367px;
+    padding-top: 60px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 25px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.image-testi {
+    margin-left: 120px;
+    margin-bottom: 40px;
+}
+
+.card-testimoni h6 {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 31px;
+    text-align: center;
+    color: #3A3D42;
+}
