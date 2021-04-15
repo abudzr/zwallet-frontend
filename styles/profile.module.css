@@ -1,0 +1,43 @@
+.card-profile {
+    padding-top: 30px;
+    height: 678px;
+    width: 700px;
+    border-radius: 25px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.card-profile .image-user {
+    margin-left: 300px;
+}
+
+.card-profile h5 {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    color: #4D4B57;
+}
+
+.card-profile p {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 27px;
+    text-align: center;
+    color: #7A7886;
+}
+
+.card-profile .button-profile {
+    margin-left: 100px;
+}
+
+.iconProfile {
+    margin-left: -40px;
+    margin-top: 50px;
+    cursor: pointer;
+    color: #7E7D84;
+}

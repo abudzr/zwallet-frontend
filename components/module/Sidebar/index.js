@@ -29,7 +29,7 @@ function Sidebar() {
                     </div>
                     <div className="mb-5">
                         <FontAwesomeIcon icon={faUser} className={style.iconSidebar} />
-                        <Link href="/">
+                        <Link href="/profile">
                             <a className={style['profile']} >Profile</a>
                         </Link>
                     </div>
