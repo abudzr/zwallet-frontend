@@ -5,6 +5,7 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image'
 import Button from '../components/module/Button'
+import PersonalInfo from '../parts/Profile/PersonalInformation'
 
 function Profile() {
     return (
@@ -14,6 +15,7 @@ function Profile() {
                     <Sidebar />
                 </div>
                 <div className="col-lg-8">
+                    {/* <PersonalInfo /> */}
                     <div className={style['card-profile']}>
                         <div className={style['image-user']}>
                             <Image

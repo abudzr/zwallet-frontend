@@ -1,0 +1,68 @@
+.card-personal {
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    height: 678px;
+    width: 700px;
+    border-radius: 25px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.card-personal h6 {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+    color: #3A3D42;
+}
+
+.card-personal p {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 28px;
+    color: #7A7886;
+}
+
+.circle-edit {
+    position: absolute;
+    top: 30px;
+    right: 80px;
+    width: 20px;
+    height: 20px;
+    background: #6379F4;
+    cursor: pointer;
+}
+
+.form-group {
+    height: 92px;
+    width: 600px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.form-group label {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    color: #7A7886;
+    margin-left: 10px;
+}
+
+.form-control {
+    border-radius: 0;
+    border: none;
+}
+
+.card-personal .form-group .manage {
+    color: #6379F4;
+    margin-left: 400px;
+    cursor: pointer;
+}
