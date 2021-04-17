@@ -72,17 +72,12 @@ export default function Signup() {
                             alt="Picture of the author"
                         />
                         <Image
-                            src="/images/phone2.png"
+                            src="/images/Groupphone.png"
                             alt="Picture of the author"
-                            width={278.51338475284683}
+                            width={512.51338475284683}
                             height={536.4722634749991}
                         />
-                        <Image
-                            src="/images/phone.png"
-                            alt="Picture of the author"
-                            width={278.51338475284683}
-                            height={536.4722634749991}
-                        />
+
                     </div>
                     <div className={style['bottom-section']}>
                         <p className={style['title-bottom-section']}>App that Covering Banking Needs.</p>
@@ -141,11 +136,7 @@ export default function Signup() {
                         />
                         <FontAwesomeIcon icon={isPasswordShow ? faEye : faEyeSlash} className={style.iconPass} onClick={tooglePasswordVisibility} />
                     </div>
-                    <div className={style['forgot-pass']}>
-                        <Link href="/forgot-password">
-                            <a>Forgot Password?</a>
-                        </Link>
-                    </div>
+
                     <button
                         type="submit"
                         className={[["mt-5 btn"], style["btn-auth"]].join(" ")}

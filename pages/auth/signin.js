@@ -70,15 +70,9 @@ export default function Signin() {
                             alt="Picture of the author"
                         />
                         <Image
-                            src="/images/phone2.png"
+                            src="/images/Groupphone.png"
                             alt="Picture of the author"
-                            width={278.51338475284683}
-                            height={536.4722634749991}
-                        />
-                        <Image
-                            src="/images/phone.png"
-                            alt="Picture of the author"
-                            width={278.51338475284683}
+                            width={512.51338475284683}
                             height={536.4722634749991}
                         />
                     </div>
@@ -126,7 +120,7 @@ export default function Signin() {
                         <FontAwesomeIcon icon={isPasswordShow ? faEye : faEyeSlash} className={style.iconPass} onClick={tooglePasswordVisibility} />
                     </div>
                     <div className={style['forgot-pass']}>
-                        <Link href="/forgot-password">
+                        <Link href="/auth/forgot-password">
                             <a>Forgot Password?</a>
                         </Link>
                     </div>
