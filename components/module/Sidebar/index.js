@@ -26,7 +26,7 @@ function Sidebar() {
                     </div>
                     <div className="mb-5">
                         <FontAwesomeIcon icon={faArrowUp} className={style.iconSidebar} />
-                        <Link href="/">
+                        <Link href="/transfer">
                             <a className={style['Transfer']} >Transfer</a>
                         </Link>
                     </div>

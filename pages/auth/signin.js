@@ -20,9 +20,7 @@ export default function Signin() {
         setisPasswordShow(!isPasswordShow)
     }
     const handleFormChange = (event) => {
-        const dataNew = {
-            ...data,
-        };
+        const dataNew = { ...data };
         dataNew[event.target.name] = event.target.value;
         setData(dataNew);
     };

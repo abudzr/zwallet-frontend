@@ -1,0 +1,51 @@
+.card-topup {
+    height: 700px;
+    width: 650px;
+    border-radius: 25px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+    border-radius: 25px;
+    padding-top: 20px;
+}
+
+.card-topup p {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+    color: #3A3D42;
+}
+
+.form-topup input {
+    background: #FFFFFF;
+    padding: 25px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 27px;
+    align-items: center;
+    color: #7A7886;
+}
+
+.form-topup select {
+    background: #FFFFFF;
+    padding: 15px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 27px;
+    align-items: center;
+    color: #7A7886;
+}
+
+.form-topup input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

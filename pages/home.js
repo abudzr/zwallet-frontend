@@ -71,8 +71,6 @@ function Home() {
             .then((res) => {
                 const data = res.data.data[0]
                 setUser(data)
-                // setImage(res.data.data[0].image)
-                // console.log(res.data.data[0].image);
             })
             .catch((err) => {
                 console.log(err);
@@ -99,13 +97,13 @@ function Home() {
                                 <div className="col-lg-4">
                                     <div className={style['card-header']}>
                                         <FontAwesomeIcon icon={faArrowUp} className={style.iconHeader} />
-                                        <Link href="/">
+                                        <Link href="/transfer">
                                             <a >Transfer</a>
                                         </Link>
                                     </div>
                                     <div className={style['card-header']}>
                                         <FontAwesomeIcon icon={faPlus} className={style.iconHeader} />
-                                        <Link href="/">
+                                        <Link href="/topup">
                                             <a  >Top Up</a>
                                         </Link>
                                     </div>

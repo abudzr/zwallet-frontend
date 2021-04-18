@@ -97,22 +97,16 @@ export default function Pin() {
 
                         <div className="form-group">
                             <input
-                                type="number"
-                                maxlength="1"
-                                pattern="[0-9]*"
-                                className={[["form-control mt-1"], style["form-control"]].join(
-                                    " "
-                                )}
+                                type="text"
+                                className={[["form-control mt-1"], style["form-control"]].join(" ")}
                                 name="pin"
                                 id="pin"
-                                // value={this.state.financialGoal}
-                                // onChange={event => this.setState({ financialGoal: event.target.value.replace(/\D/, '') })}
                                 onChange={handleFormChange}
                             />
                         </div>
                         <div className="form-group">
                             <input
-                                type="number"
+                                type="text"
                                 className={[["form-control mt-1"], style["form-control"]].join(
                                     " "
                                 )}
@@ -123,7 +117,7 @@ export default function Pin() {
                         </div>
                         <div className="form-group">
                             <input
-                                type="number"
+                                type="text"
                                 className={[["form-control mt-1"], style["form-control"]].join(
                                     " "
                                 )}
@@ -134,7 +128,7 @@ export default function Pin() {
                         </div>
                         <div className="form-group">
                             <input
-                                type="number"
+                                type="text"
                                 className={[["form-control mt-1"], style["form-control"]].join(
                                     " "
                                 )}
@@ -145,7 +139,7 @@ export default function Pin() {
                         </div>
                         <div className="form-group">
                             <input
-                                type="number"
+                                type="text"
                                 className={[["form-control mt-1"], style["form-control"]].join(
                                     " "
                                 )}
@@ -156,7 +150,7 @@ export default function Pin() {
                         </div>
                         <div className="form-group">
                             <input
-                                type="number"
+                                type="text"
                                 className={[["form-control mt-1"], style["form-control"]].join(
                                     " "
                                 )}

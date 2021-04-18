@@ -1,11 +1,11 @@
 import Layout from '../components/base/Layout'
 import React from 'react'
 import Sidebar from '../components/module/Sidebar'
-import Main from '../parts/TopUp'
+import Main from '../parts/Transfer'
 import Navbar from '../components/module/Navbar'
 
 
-function TopUp() {
+function Transfer() {
 
     return (
         <Layout title="Top Up | Z-wallet" >
@@ -26,4 +26,4 @@ function TopUp() {
     )
 }
 
-export default TopUp
+export default Transfer
