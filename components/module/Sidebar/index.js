@@ -3,8 +3,17 @@ import style from '../../../styles/sidebar.module.css'
 import { faPlus, faArrowUp, faUser, faTachometerAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
+
 
 function Sidebar() {
+    const router = useRouter()
+
+    const handlelogout = () => {
+        localStorage.clear('token');
+        router.push('/')
+
+    }
     return (
         <div className={style.sidebar}>
             <div className="container">
@@ -23,7 +32,7 @@ function Sidebar() {
                     </div>
                     <div className="mb-5">
                         <FontAwesomeIcon icon={faPlus} className={style.iconSidebar} />
-                        <Link href="/">
+                        <Link href="/topup">
                             <a className={style['top-up']} >Top Up</a>
                         </Link>
                     </div>
@@ -35,8 +44,8 @@ function Sidebar() {
                     </div>
                     <div className={[["mb-5"], style["icon-logout"]].join(" ")}>
                         <FontAwesomeIcon icon={faSignOutAlt} className={style.iconSidebar} />
-                        <Link href="/">
-                            <a className={style['log-out']} >Logout</a>
+                        <Link href="#"  >
+                            <a className={style['log-out']} onClick={handlelogout} >Logout</a>
                         </Link>
                     </div>
                 </div>

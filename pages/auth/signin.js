@@ -5,8 +5,11 @@ import Image from 'next/image'
 import style from '../../styles/signin.module.css'
 import { faEnvelope, faLock, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import axios from 'axios';
+
 
 export default function Signin() {
+    const router = useRouter()
     const [data, setData] = useState({
         email: "",
         password: "",
@@ -24,38 +27,20 @@ export default function Signin() {
         setData(dataNew);
     };
 
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     dispatch(login(data))
-    //         .then((res) => {
-    //             Swal.fire({
-    //                 title: "Success!",
-    //                 text: res,
-    //                 icon: "success",
-    //                 confirmButtonText: "Ok",
-    //                 confirmButtonColor: "#ffba33",
-    //             }).then((result) => {
-    //                 if (result.isConfirmed) {
-    //                     history.push("/");
-    //                 } else {
-    //                     history.push("/");
-    //                 }
-    //             });
-    //         })
-    //         .catch((err) => {
-    //             Swal.fire({
-    //                 title: "Error!",
-    //                 text: err,
-    //                 icon: "error",
-    //                 confirmButtonText: "Ok",
-    //                 confirmButtonColor: "#6a4029",
-    //             });
-    //         });
-    // };
-
-    // const handleClickSignUp = () => {
-    //     router.push("/auth/signup");
-    // };
+    const handleLogin = (event) => {
+        event.preventDefault();
+        const url = axios.post('http://localhost:8080/api/v1/users/auth/login', data)
+            .then(res => {
+                console.log(res.data.data);
+                localStorage.setItem("token", res.data.data.token)
+                if (res.data.data.role == 2) {
+                    router.push('/home')
+                }
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
 
     return (
         <main className={style['main-login']}>
@@ -127,7 +112,7 @@ export default function Signin() {
                     <button
                         type="submit"
                         className={[["mt-5 btn"], style["btn-auth"]].join(" ")}
-                        onClick=""
+                        onClick={handleLogin}
                     >
                         Login
                     </button>

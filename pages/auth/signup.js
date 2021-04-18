@@ -26,39 +26,6 @@ export default function Signup() {
         setData(dataNew);
     };
 
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     dispatch(signup(data))
-    //         .then((res) => {
-    //             Swal.fire({
-    //                 title: "Success!",
-    //                 text: res,
-    //                 icon: "success",
-    //                 confirmButtonText: "Ok",
-    //                 confirmButtonColor: "#ffba33",
-    //             }).then((result) => {
-    //                 if (result.isConfirmed) {
-    //                     history.push("/");
-    //                 } else {
-    //                     history.push("/");
-    //                 }
-    //             });
-    //         })
-    //         .catch((err) => {
-    //             Swal.fire({
-    //                 title: "Error!",
-    //                 text: err,
-    //                 icon: "error",
-    //                 confirmButtonText: "Ok",
-    //                 confirmButtonColor: "#6a4029",
-    //             });
-    //         });
-    // };
-
-    // const handleClickSignUp = () => {
-    //     router.push("/auth/signup");
-    // };
-
     return (
         <main className={style['main-signup']}>
 
