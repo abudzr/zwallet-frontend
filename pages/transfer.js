@@ -3,12 +3,13 @@ import React from 'react'
 import Sidebar from '../components/module/Sidebar'
 import Main from '../parts/Transfer'
 import Navbar from '../components/module/Navbar'
+import Footer from '../components/module/Footer'
 
 
 function Transfer() {
 
     return (
-        <Layout title="Top Up | Z-wallet" >
+        <Layout title="Transfer | Z-wallet" >
             <Navbar />
 
             <div className="container">
@@ -21,6 +22,7 @@ function Transfer() {
                     </div>
                 </div >
             </div >
+            <Footer />
         </Layout>
 
     )

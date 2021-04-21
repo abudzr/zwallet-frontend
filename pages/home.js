@@ -16,6 +16,7 @@ import {
     ResponsiveContainer,
 } from 'recharts';
 import Navbar from '../components/module/Navbar'
+import Footer from '../components/module/Footer'
 
 const data = [
     {
@@ -171,6 +172,7 @@ function Home() {
                     </div>
                 </div >
             </div >
+            <Footer />
         </Layout>
 
     )

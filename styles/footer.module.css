@@ -4,6 +4,13 @@
     height: 438px;
 }
 
+.footer-login {
+    margin-top: 50px;
+    padding-top: 20px;
+    background: #6379F4;
+    height: 68px;
+}
+
 .footer h2 {
     font-family: Nunito Sans;
     font-style: normal;
@@ -45,4 +52,25 @@
 
 .footer p.subtext-footers {
     font-weight: 600;
+}
+
+.footer-login span {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 28px;
+    color: rgba(239, 239, 239, 0.9);
+    margin-right: 500px;
+
+}
+
+.footer-login p {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 28px;
+    color: #EFEFEF;
+    margin-right: 30px;
 }

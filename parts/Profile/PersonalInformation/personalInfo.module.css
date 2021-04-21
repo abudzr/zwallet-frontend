@@ -37,6 +37,10 @@
     cursor: pointer;
 }
 
+.form-group input {
+    background: #fff;
+}
+
 .form-group {
     height: 92px;
     width: 600px;

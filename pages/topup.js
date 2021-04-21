@@ -3,6 +3,7 @@ import React from 'react'
 import Sidebar from '../components/module/Sidebar'
 import Main from '../parts/TopUp'
 import Navbar from '../components/module/Navbar'
+import Footer from '../components/module/Footer'
 
 
 function TopUp() {
@@ -21,6 +22,7 @@ function TopUp() {
                     </div>
                 </div >
             </div >
+            <Footer />
         </Layout>
 
     )

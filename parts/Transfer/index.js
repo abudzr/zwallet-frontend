@@ -3,7 +3,6 @@ import axios from 'axios';
 import style from '../../styles/transfer.module.css'
 import Button from '../../components/module/Button'
 import { useRouter } from 'next/router'
-import Swal from 'sweetalert2'
 import moment from 'moment';
 
 function PartTransfer() {
@@ -38,7 +37,7 @@ function PartTransfer() {
     const handleFormChange = (event) => {
         setName(event.target.value);
         const token = localStorage.getItem('token')
-        const url = `http://localhost:8080/api/v1/users?keyword=${event.target.value}`;
+        const url = `${process.env.api}/users?keyword=${event.target.value}`;
         axios.get(url, {
             headers: {
                 Authorization: 'Bearer ' + token
@@ -61,7 +60,7 @@ function PartTransfer() {
         setResult(false)
         setSelect(true)
 
-        const url = `http://localhost:8080/api/v1/users/find-user?id=${data}`;
+        const url = `${process.env.api}/users/find-user?id=${data}`;
         axios.get(url)
             .then((res) => {
                 const data = res.data.data[0]
@@ -100,7 +99,7 @@ function PartTransfer() {
     const handleConfirm = (event) => {
         event.preventDefault();
         const pinnumber = `${pin.one}${pin.two}${pin.three}${pin.four}${pin.five}${pin.six}`;
-        const url = axios.post('http://localhost:8080/api/v1/transaction/transfer', {
+        const url = axios.post(`${process.env.api}/transaction/transfer`, {
             idUser: dataIsLogin.id,
             idReceiver: dataIdReceiver,
             amount: data.amount,
@@ -121,7 +120,8 @@ function PartTransfer() {
 
     useEffect(() => {
         const token = localStorage.getItem('token')
-        const url = 'http://localhost:8080/api/v1/users/find-one';
+
+        const url = `${process.env.api}/users/find-one`;
         axios.get(url, {
             headers: {
                 Authorization: 'Bearer ' + token
@@ -175,7 +175,7 @@ function PartTransfer() {
                             >
                                 <div className="image">
                                     <img
-                                        src={`http://localhost:8080/${item.image}`}
+                                        src={`${process.env.api_img}${item.image}`}
                                         width={70}
                                         height={70}
                                         alt="User"
@@ -201,7 +201,7 @@ function PartTransfer() {
                         >
                             <div className="image">
                                 <img
-                                    src={`http://localhost:8080/${dataReceiver.image}`}
+                                    src={`${process.env.api_img}${dataReceiver.image}`}
                                     width={70}
                                     height={70}
                                     alt="User"
@@ -266,7 +266,7 @@ press continue to the next steps.</p>
                         <div className={[["d-flex"], ["align-items-center"], ["py-2"], ["pl-3"], ["mt-4"], style["form-users"]].join(" ")}>
                             <div className="image">
                                 <img
-                                    src={`http://localhost:8080/${dataReceiver.image}`}
+                                    src={`${process.env.api_img}${dataReceiver.image}`}
                                     width={70}
                                     height={70}
                                     alt="User"
@@ -399,7 +399,7 @@ press continue to the next steps.</p>
                         <div className={[["d-flex"], ["align-items-center"], ["py-2"], ["pl-3"], ["mt-4"], style["form-users"]].join(" ")}>
                             <div className="image">
                                 <img
-                                    src={`http://localhost:8080/${dataReceiver.image}`}
+                                    src={`${process.env.api_img}${dataReceiver.image}`}
                                     width={70}
                                     height={70}
                                     alt="User"
@@ -469,7 +469,7 @@ press continue to the next steps.</p>
                         <div className={[["d-flex"], ["align-items-center"], ["py-2"], ["pl-3"], ["mt-4"], style["form-users"]].join(" ")}>
                             <div className="image">
                                 <img
-                                    src={`http://localhost:8080/${dataReceiver.image}`}
+                                    src={`${process.env.api_img}${dataReceiver.image}`}
                                     width={70}
                                     height={70}
                                     alt="User"
