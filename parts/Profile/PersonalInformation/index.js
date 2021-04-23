@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import style from './personalInfo.module.css'
 import axios from 'axios';
-
+import Link from 'next/link'
 
 function PersonalInfo() {
     const [user, setUser] = useState([])
@@ -19,7 +19,7 @@ function PersonalInfo() {
                 const data = res.data.data[0]
                 setUser(data)
                 // setImage(res.data.data[0].image)
-                console.log(res.data.data[0].image);
+                // console.log(res.data.data[0].image);
             })
             .catch((err) => {
                 console.log(err);
@@ -31,7 +31,7 @@ function PersonalInfo() {
         <div className={style['card-personal']}>
             <h6>Personal Information</h6>
             <p>We got your personal information from the sign <br /> up proccess. If you want to make changes on<br /> your information, contact our support.</p>
-            <div className={style['circle-edit']}></div>
+
             <form className={[["mt-5"], style["form-aside"]].join(" ")}>
                 <div className={style['form-group']}>
                     <label htmlFor="firstname">First Name</label>
@@ -82,7 +82,9 @@ function PersonalInfo() {
                     <label htmlFor="PhoneNumber">Phone Number</label>
                     <div className="d-flex">
                         <p>{user.phoneNumber}</p>
-                        <p className={style.manage}>Manage</p>
+                        <Link href="/profile/add-phone-number">
+                            <a className={style.manage}>Manage</a>
+                        </Link>
                     </div>
                 </div>
             </form>

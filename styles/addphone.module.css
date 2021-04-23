@@ -1,0 +1,72 @@
+.card-profile {
+    padding-top: 30px;
+    padding-left: 30px;
+    height: 678px;
+    width: 700px;
+    border-radius: 25px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.card-profile h6 {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+    color: #3A3D42;
+}
+
+.card-profile p {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 28px;
+    color: #7A7886;
+}
+
+.card-profile input {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 60px;
+    margin-top: 100px !important;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 431px;
+    border-radius: 0px;
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 23px;
+    color: rgba(169, 169, 169, 0.8);
+    -webkit-appearance: none;
+    box-shadow: none !important;
+}
+
+.card-profile input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.iconPhone {
+    color: rgba(169, 169, 169, 0.6);
+    position: absolute;
+    top: 254px;
+    left: 170px;
+    transform: rotate(100deg);
+}
+
+.card-profile span {
+    position: absolute;
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 23px;
+    color: #3A3D42;
+    top: 254px;
+    left: 190px;
+}

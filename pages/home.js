@@ -57,10 +57,20 @@ const data = [
 ];
 
 function Home() {
-    const [user, setUser] = useState([])
+    const [user, setUser] = useState([]);
+    const [history, setHistory] = useState([]);
+
     // const [image, setImage] = useState()
     const router = useRouter()
 
+    const handleHistory = () => {
+        router.push('/history')
+    }
+
+    // let token;
+    // if (typeof window !== "undefined") {
+    //     token = localStorage.getItem("token");
+    // }
     useEffect(() => {
         const token = localStorage.getItem('token')
         const url = 'http://localhost:8080/api/v1/users/find-one';
@@ -71,12 +81,35 @@ function Home() {
         })
             .then((res) => {
                 const data = res.data.data[0]
+                // console.log(data);
                 setUser(data)
             })
             .catch((err) => {
                 console.log(err);
             })
     }, []);
+
+    useEffect(() => {
+        let token;
+        if (typeof window !== "undefined") {
+            token = localStorage.getItem("token");
+        }
+        const id = user.id
+        const url = `${process.env.api}/transaction/user/${id}`;
+        axios.get(url, {
+            headers: {
+                Authorization: 'Bearer ' + token
+            }
+        })
+            .then((res) => {
+                const data = res.data.data
+                console.log(data);
+                setHistory(data)
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }, [history, user]);
 
     return (
         <Layout title="Home | Z-wallet" >
@@ -120,7 +153,7 @@ function Home() {
                                             <p>Income</p>
                                             <h2>Rp2.120.000</h2>
                                         </div>
-                                        <div>
+                                        <div className={style['expense-chart']}>
                                             <FontAwesomeIcon icon={faArrowUp} className={style.iconExpense} />
                                             <p>Expense</p>
                                             <h2>Rp2.120.000</h2>
@@ -137,34 +170,35 @@ function Home() {
                                 <div className={style["main-history"]}>
                                     <div className="d-flex">
                                         <h3>Transaction History</h3>
-                                        <h4>See all</h4>
+                                        <h4 onClick={handleHistory}>See all</h4>
                                     </div>
-                                    <div className="d-flex mb-3">
-                                        <Image
-                                            src="/images/user.png"
-                                            alt="Picture feature"
-                                            width={56}
-                                            height={56}
-                                        />
-                                        <div>
-                                            <h5>Christine Mar...</h5>
-                                            <p>Transfer</p>
-                                        </div>
-                                        <h6 className={style.income}>+Rp.50.000</h6>
-                                    </div>
-                                    <div className="d-flex">
-                                        <Image
-                                            src="/images/user.png"
-                                            alt="Picture feature"
-                                            width={56}
-                                            height={56}
-                                        />
-                                        <div>
-                                            <h5>Netflix</h5>
-                                            <p>Subscription</p>
-                                        </div>
-                                        <h6 className={style.expense}>-Rp.250.000</h6>
-                                    </div>
+                                    {history.map((item, index) => {
+                                        return (
+                                            <div className="d-flex mb-3" key={index}>
+                                                <img
+                                                    src={`${process.env.api_img}${item.image}`}
+                                                    alt="Picture feature"
+                                                    width={56}
+                                                    height={56}
+                                                />
+                                                <div>
+                                                    <h5>{item.firstname}</h5>
+                                                    <p>{item.type}</p>
+                                                </div>
+                                                <div>
+                                                    <h6 className={`${item.type === "Transfer" ? style['amount-transfer'] : style['amount-receiver']}`} >
+                                                        {
+                                                            item.type === "Transfer"
+                                                                ? `-Rp${item.amount}`
+                                                                : `+Rp${item.amount}`
+                                                        }
+                                                    </h6>
+                                                </div>
+                                            </div>
+
+                                        );
+                                    })}
+
                                 </div>
                             </div>
 

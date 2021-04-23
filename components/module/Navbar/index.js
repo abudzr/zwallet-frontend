@@ -31,12 +31,12 @@ function Navbar() {
                 const data = res.data.data[0]
                 setUser(data)
                 setImage(res.data.data[0].image)
-                console.log(res.data.data[0].image);
+                // console.log(res.data.data[0].image);
             })
             .catch((err) => {
                 console.log(err);
             })
-    }, []);
+    }, [user, image]);
 
     let isAuthenticated;
     if (typeof window !== "undefined") {

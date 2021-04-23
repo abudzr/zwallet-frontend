@@ -126,3 +126,51 @@
     border-radius: 12px;
     border: none;
 }
+
+.btn-change-pass {
+    margin-top: 50px;
+    margin-left: 120px;
+    border: none;
+    height: 57px;
+    width: 432px;
+    background: #DADADA;
+    box-shadow: 0px 6px 75px rgba(100, 87, 87, 0.05);
+    border-radius: 12px;
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    color: #88888F;
+}
+
+.btn-edit {
+    border: none;
+    background: #fff;
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 27px;
+    text-align: center;
+    color: #7A7886;
+}
+
+.btn-choose-picture {
+    margin-top: 10px;
+    border: none;
+    height: 30px;
+    width: 130px;
+    border-radius: 10px;
+    background: #6379F4;
+    box-shadow: 0px 6px 75px rgba(100, 87, 87, 0.05);
+    border-radius: 12px;
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    color: #FFFFFF;
+}

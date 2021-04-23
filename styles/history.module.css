@@ -1,0 +1,72 @@
+.card-history {
+    padding-top: 30px;
+    padding-left: 30px;
+    height: 778px;
+    width: 700px;
+    border-radius: 25px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.card-history h3 {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+    color: #3A3D42;
+}
+
+.card-transaction-history {
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 110px;
+    width: 600px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+}
+
+.card-transaction-history h5 {
+    margin-top: 15px;
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+    color: #4D4B57;
+}
+
+.card-transaction-history p {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    color: #7A7886;
+}
+
+.text-transaction {
+    margin-left: -180px;
+}
+
+.card-transaction-history h6.amount-transfer {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+    margin-top: 27px;
+    color: #FF5B37;
+}
+
+.card-transaction-history h6.amount-receiver {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+    margin-top: 27px;
+    color: #1EC15F;
+}

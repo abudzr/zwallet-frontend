@@ -65,7 +65,7 @@
 
 .main-chart {
     height: 468px;
-    width: 463px;
+    width: 420px;
     margin-right: 10px;
     border-radius: 25px;
     padding-top: 20px;
@@ -102,7 +102,7 @@
 }
 
 .income-chart {
-    margin-right: 200px;
+    margin-right: 120px;
 }
 
 /* history */

@@ -8,7 +8,8 @@
 }
 
 .card-profile .image-user {
-    margin-left: 300px;
+    display: flex;
+    justify-content: center;
 }
 
 .card-profile h5 {
@@ -40,4 +41,19 @@
     margin-top: 50px;
     cursor: pointer;
     color: #7E7D84;
+}
+
+.editProfile {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.editProfile p {
+    margin-left: 10px;
+}
+
+.image-user-modal img {
+    margin-left: 18px;
 }
