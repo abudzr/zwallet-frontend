@@ -36,7 +36,7 @@ function Navbar() {
             .catch((err) => {
                 console.log(err);
             })
-    }, [user, image]);
+    }, []);
 
     let isAuthenticated;
     if (typeof window !== "undefined") {

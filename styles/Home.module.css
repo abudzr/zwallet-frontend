@@ -124,7 +124,7 @@
     font-size: 18px;
     line-height: 25px;
     color: #3A3D42;
-    margin-right: 50px;
+    margin-right: 90px;
 }
 
 .main-history h4 {
@@ -171,4 +171,28 @@
 
 .expense {
     color: #FF5B37;
+}
+
+.amount-transfer {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: right;
+    color: #FF5B37;
+}
+
+.amount-receiver {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: right;
+    color: #1EC15F;
+}
+
+.text-history-home {
+    margin-left: -100px;
 }

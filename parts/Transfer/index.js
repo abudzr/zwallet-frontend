@@ -76,7 +76,7 @@ function PartTransfer() {
     const handleChangeTransfer = (event) => {
         const dataNew = { ...data };
         dataNew[event.target.name] = event.target.value;
-        console.log(dataNew);
+        // console.log(dataNew);
         setData(dataNew);
     }
 

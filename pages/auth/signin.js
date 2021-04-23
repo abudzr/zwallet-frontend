@@ -29,7 +29,8 @@ export default function Signin() {
         event.preventDefault();
         const url = axios.post('http://localhost:8080/api/v1/users/auth/login', data)
             .then(res => {
-                console.log(res.data.data);
+                // console.log(res.data.data);
+                localStorage.setItem("id", res.data.data.id)
                 localStorage.setItem("token", res.data.data.token)
                 if (res.data.data.role == 2) {
                     router.push('/home')

@@ -18,59 +18,55 @@ import {
 import Navbar from '../components/module/Navbar'
 import Footer from '../components/module/Footer'
 
+
 const data = [
     {
         name: "Sat",
-        income: 10000,
-        outcome: -4000,
+        income: "10000",
+        outcome: "",
     },
     {
         name: "Sun",
-        income: 5000,
-        outcome: -3000,
+        income: "",
+        outcome: "20000",
     },
     {
         name: "Mon",
-        income: 9800,
-        outcome: -8000,
+        income: "",
+        outcome: "",
     },
     {
         name: "Tue",
-        income: 9800,
-        outcome: -4000,
+        income: "",
+        outcome: "",
     },
     {
         name: "Wed",
-        income: 7800,
-        outcome: -6000,
+        income: "",
+        outcome: "",
     },
     {
         name: "Thu",
-        income: 5800,
-        outcome: -2000,
+        income: "",
+        outcome: "",
     },
     {
         name: "Fri",
-        income: 5800,
-        outcome: -2000,
+        income: "",
+        outcome: "",
     },
 ];
-
 function Home() {
     const [user, setUser] = useState([]);
     const [history, setHistory] = useState([]);
-
-    // const [image, setImage] = useState()
+    const [income, setIncome] = useState([]);
+    const [expense, setExpense] = useState([]);
     const router = useRouter()
 
     const handleHistory = () => {
         router.push('/history')
     }
 
-    // let token;
-    // if (typeof window !== "undefined") {
-    //     token = localStorage.getItem("token");
-    // }
     useEffect(() => {
         const token = localStorage.getItem('token')
         const url = 'http://localhost:8080/api/v1/users/find-one';
@@ -89,6 +85,54 @@ function Home() {
             })
     }, []);
 
+
+
+    useEffect(() => {
+        let token;
+        if (typeof window !== "undefined") {
+            token = localStorage.getItem("token");
+        }
+        const id = user.id
+        const url = `${process.env.api}/transaction/income/${id}`;
+        console.log(url);
+        axios.get(url, {
+            headers: {
+                Authorization: 'Bearer ' + token
+            }
+        })
+            .then((res) => {
+                const data = res.data.data[0]
+                // console.log(data);
+                setIncome(data)
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }, [user]);
+
+    useEffect(() => {
+        let token;
+        if (typeof window !== "undefined") {
+            token = localStorage.getItem("token");
+        }
+        const id = user.id
+        const url = `${process.env.api}/transaction/expense/${id}`;
+        console.log(url);
+        axios.get(url, {
+            headers: {
+                Authorization: 'Bearer ' + token
+            }
+        })
+            .then((res) => {
+                const data = res.data.data[0]
+                // console.log(data);
+                setExpense(data)
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }, [user]);
+
     useEffect(() => {
         let token;
         if (typeof window !== "undefined") {
@@ -103,13 +147,15 @@ function Home() {
         })
             .then((res) => {
                 const data = res.data.data
-                console.log(data);
+                // console.log(data);
                 setHistory(data)
             })
             .catch((err) => {
                 console.log(err);
             })
-    }, [history, user]);
+    }, [user]);
+
+
 
     return (
         <Layout title="Home | Z-wallet" >
@@ -151,18 +197,20 @@ function Home() {
                                         <div className={style['income-chart']}>
                                             <FontAwesomeIcon icon={faArrowDown} className={style.iconIncome} />
                                             <p>Income</p>
-                                            <h2>Rp2.120.000</h2>
+                                            <h2>Rp.{income.income}</h2>
                                         </div>
                                         <div className={style['expense-chart']}>
                                             <FontAwesomeIcon icon={faArrowUp} className={style.iconExpense} />
                                             <p>Expense</p>
-                                            <h2>Rp2.120.000</h2>
+                                            <h2>Rp.{expense.expense}</h2>
                                         </div>
                                     </div>
                                     <ResponsiveContainer width="95%" height="50%">
                                         <BarChart width={120} height={40} data={data}>
                                             <XAxis dataKey="name" />
                                             <Bar dataKey="income" fill="#6379F4" radius={20} />
+                                            <Bar dataKey="outcome" fill="#9DA6B5" radius={20} />
+
                                         </BarChart>
                                     </ResponsiveContainer>
                                 </div>
@@ -174,14 +222,14 @@ function Home() {
                                     </div>
                                     {history.map((item, index) => {
                                         return (
-                                            <div className="d-flex mb-3" key={index}>
+                                            <div className="d-flex mb-3 justify-content-between" key={index}>
                                                 <img
                                                     src={`${process.env.api_img}${item.image}`}
                                                     alt="Picture feature"
                                                     width={56}
                                                     height={56}
                                                 />
-                                                <div>
+                                                <div className={style['text-history-home']}>
                                                     <h5>{item.firstname}</h5>
                                                     <p>{item.type}</p>
                                                 </div>
