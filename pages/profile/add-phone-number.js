@@ -7,20 +7,41 @@ import style from '../../styles/addphone.module.css'
 import { faPhone } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Button from '../../components/module/Button';
+import Swal from 'sweetalert2'
+import axios from 'axios'
+import { useRouter } from 'next/router'
 
-function changePassword() {
-    const [data, setData] = useState({
-        phoneNumber: "",
-    });
-
+function addPhoneNumber() {
+    const router = useRouter()
+    const [data, setData] = useState(null);
 
     const handleFormChange = (event) => {
         const dataNew = {
             ...data,
         };
         dataNew[event.target.name] = event.target.value;
+        // console.log(dataNew);
         setData(dataNew);
     };
+
+    const handleSave = (event) => {
+        event.preventDefault();
+        const id = localStorage.getItem('id')
+        const url = `${process.env.api}/users/add-phone/${id}`
+        console.log(url);
+        axios.put(url, data)
+            .then((res) => {
+                router.push("/profile")
+                Swal.fire("Success", "Add Phone Number Success!", "success");
+
+            }, (err) => {
+                if (err) {
+                    setShow(false);
+                    Swal.fire(" ERROR!!!", "Add Phone Number Failed!", "error");
+                }
+            })
+    }
+
 
     return (
         <Layout title="Profile | Z-wallet" >
@@ -43,16 +64,15 @@ function changePassword() {
                                         className={[["form-control mt-1"], style["form-control"]].join(
                                             " "
                                         )}
-                                        name="password"
-                                        id="password"
+                                        name="phoneNumber"
+                                        id="phoneNumber"
                                         placeholder="Enter your phone number"
                                         onChange={handleFormChange}
                                     />
                                 </div>
-                                <Button title="Add Phone Number" btn="btn-change-pass" />
+                                <Button title="Add Phone Number" btn="btn-change-pass" onClick={handleSave} />
                             </form>
                         </div>
-
 
                     </div>
                 </div>
@@ -62,4 +82,4 @@ function changePassword() {
     )
 }
 
-export default changePassword
+export default addPhoneNumber

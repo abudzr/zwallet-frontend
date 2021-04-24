@@ -4,10 +4,16 @@ import { faLock, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Button from '../../../components/module/Button';
 import axios from 'axios'
+import Swal from 'sweetalert2'
+import { useRouter } from 'next/router'
 
 function ChangePassword() {
+    const router = useRouter();
+
     const [data, setData] = useState({
+        currentPassword: "",
         password: "",
+        confirmPassword: "",
     });
     const [isPasswordShow, setisPasswordShow] = useState(false)
     const [isPasswordShow2, setisPasswordShow2] = useState(false)
@@ -28,28 +34,57 @@ function ChangePassword() {
             ...data,
         };
         dataNew[event.target.name] = event.target.value;
+        console.log(dataNew);
         setData(dataNew);
     };
 
-
-    useEffect(() => {
-        const token = localStorage.getItem('token')
-        const url = `${process.env.api}/users/find-one`;
-        axios.get(url, {
-            headers: {
-                Authorization: 'Bearer ' + token
-            }
+    // let token;
+    // if (typeof window !== "undefined") {
+    //     token = localStorage.getItem("token");
+    // }
+    const handleUpdate = (event) => {
+        event.preventDefault();
+        const id = localStorage.getItem('id')
+        const url = `${process.env.api}/users/edit-password/${id}`
+        // console.log(url);
+        axios.put(url, {
+            currentPassword: data.currentPassword,
+            password: data.password,
+            confirmPassword: data.confirmPassword
         })
             .then((res) => {
-                const data = res.data.data[0].password
-                // setData(data)
-                // setImage(res.data.data[0].image)
-                console.log(res.data.data[0]);
+                router.push("/profile")
+                // this.getPostAPI()
+
+                Swal.fire("Success", "Update Password Success!", "success");
+
+            }, (err) => {
+                if (err) {
+                    Swal.fire(" ERROR!!!", "Update Password Failed!", "error");
+                }
             })
-            .catch((err) => {
-                console.log(err);
-            })
-    }, []);
+    }
+
+    // useEffect(() => { 
+    //     const token = localStorage.getItem('token')
+    //     const id = localStorage.getItem('id')
+    //     const url = `${process.env.api}/users/edit-password/${id}`;
+    //     axios.get(url, {
+    //         headers: {
+    //             Authorization: 'Bearer ' + token
+    //         }
+    //     })
+    //         .then((res) => {
+    //             const data = res.data.data[0].password
+    //             // setData(data)
+    //             // setImage(res.data.data[0].image)
+    //             console.log(res.data.data[0]);
+    //         })
+    //         .catch((err) => {
+    //             console.log(err);
+    //         })
+    // }, []);
+    http://localhost:8080/api/v1/users/edit-password/7
 
     return (
 
@@ -64,8 +99,8 @@ function ChangePassword() {
                         className={[["form-control mt-1"], style["form-control"]].join(
                             " "
                         )}
-                        name="password"
-                        id="password"
+                        name="currentPassword"
+                        id="currentPassword"
                         placeholder="Current password"
                         onChange={handleFormChange}
                     />
@@ -92,14 +127,14 @@ function ChangePassword() {
                         className={[["form-control mt-1"], style["form-control"]].join(
                             " "
                         )}
-                        name="password"
-                        id="password"
+                        name="confirmPassword"
+                        id="confirmPassword"
                         placeholder="Repeat new password"
                         onChange={handleFormChange}
                     />
                     <FontAwesomeIcon icon={isPasswordShow3 ? faEye : faEyeSlash} className={style.iconPass3} onClick={tooglePasswordVisibility3} />
                 </div>
-                <Button title="Change Password" btn="btn-change-pass" />
+                <Button title="Change Password" btn="btn-change-pass" onClick={handleUpdate} />
             </form>
         </div>
 

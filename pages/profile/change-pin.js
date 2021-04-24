@@ -3,9 +3,9 @@ import Sidebar from '../../components/module/Sidebar'
 import Layout from '../../components/base/Layout'
 import Navbar from '../../components/module/Navbar'
 import Footer from '../../components/module/Footer'
-import ChangePassword from '../../parts/Profile/ChangePass'
+import ChangePin from '../../parts/Profile/ChangePin'
 
-function changePasswordPage() {
+function changePinPage() {
     return (
         <Layout title="Profile | Z-wallet" >
             <Navbar />
@@ -15,8 +15,7 @@ function changePasswordPage() {
                         <Sidebar />
                     </div>
                     <div className="col-lg-8">
-                        <ChangePassword />
-                        {/* <changePasswordPage /> */}
+                        <ChangePin />
                     </div>
                 </div>
             </div>
@@ -25,4 +24,4 @@ function changePasswordPage() {
     )
 }
 
-export default changePasswordPage
+export default changePinPage

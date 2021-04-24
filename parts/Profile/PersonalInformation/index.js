@@ -81,10 +81,15 @@ function PersonalInfo() {
                 <div className={style['form-group']}>
                     <label htmlFor="PhoneNumber">Phone Number</label>
                     <div className="d-flex">
-                        <p>{user.phoneNumber}</p>
-                        <Link href="/profile/add-phone-number">
-                            <a className={style.manage}>Manage</a>
-                        </Link>
+                        <p>{user.phoneNumber == null ? "Input Your Phone Number" : user.phoneNumber}</p>
+                        {user.phoneNumber == null ?
+                            <Link href="/profile/add-phone-number">
+                                <a className={style.add}>Add</a>
+                            </Link> :
+                            <Link href="/profile/manage-phone-number">
+                                <a className={style.manage}>Manage</a>
+                            </Link>
+                        }
                     </div>
                 </div>
             </form>

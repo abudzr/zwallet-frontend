@@ -35,6 +35,9 @@ function Profile() {
     const handleChangePass = () => {
         router.push('/profile/change-password')
     }
+    const handleChangePin = () => {
+        router.push('/profile/change-pin')
+    }
 
     const hiddenFileInput = useRef(null);
     const handleClick = (e) => {
@@ -140,7 +143,7 @@ function Profile() {
                                 <FontAwesomeIcon icon={faArrowRight} className={style.iconProfile} />
                             </div>
                             <div className="d-flex">
-                                <Button title="Change PIN" btn="btn-profile">
+                                <Button title="Change PIN" btn="btn-profile" onClick={handleChangePin}>
                                 </Button>
                                 <FontAwesomeIcon icon={faArrowRight} className={style.iconProfile} />
                             </div>
