@@ -7,7 +7,6 @@ import { faEnvelope, faLock, faEye, faEyeSlash } from '@fortawesome/free-solid-s
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios';
 
-
 export default function Signin() {
     const router = useRouter()
     const [data, setData] = useState({
@@ -15,6 +14,7 @@ export default function Signin() {
         password: "",
     });
     const [isPasswordShow, setisPasswordShow] = useState(false)
+    const [checkPin, setCheckPin] = useState(null)
 
     const tooglePasswordVisibility = () => {
         setisPasswordShow(!isPasswordShow)
@@ -29,8 +29,8 @@ export default function Signin() {
         event.preventDefault();
         const url = axios.post('http://localhost:8080/api/v1/users/auth/login', data)
             .then(res => {
-                // console.log(res.data.data);
                 localStorage.setItem("id", res.data.data.id)
+                // localStorage.setItem("pin", res.data.data.pin)
                 localStorage.setItem("token", res.data.data.token)
                 if (res.data.data.role == 2) {
                     router.push('/home')
@@ -126,4 +126,5 @@ export default function Signin() {
             </aside>
         </main >
     );
+
 }

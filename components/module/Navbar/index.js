@@ -85,7 +85,12 @@ function Navbar() {
                     )}
                     <div className={style['name-phone']}>
                         {user ? (
-                            <p className={style['navbar-name']}>{user.firstname} {user.lastname}</p>
+                            <p className={style['navbar-name']}>
+                                {
+                                    user.firstname == "Your Firstname" && user.lastname == "Your Lastname" ? "Your Name"
+                                        : `${user.firstname} ${user.lastname} `
+                                }
+                            </p>
                         ) : (
                             ""
                         )}

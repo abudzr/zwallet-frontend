@@ -197,12 +197,14 @@ function Home() {
                                         <div className={style['income-chart']}>
                                             <FontAwesomeIcon icon={faArrowDown} className={style.iconIncome} />
                                             <p>Income</p>
-                                            <h2>Rp.{income.income}</h2>
+                                            <h2>{income.income == undefined ? "Rp.0" : `Rp.${income.income}`}</h2>
+
                                         </div>
                                         <div className={style['expense-chart']}>
                                             <FontAwesomeIcon icon={faArrowUp} className={style.iconExpense} />
                                             <p>Expense</p>
-                                            <h2>Rp.{expense.expense}</h2>
+                                            <h2>{expense.expense == undefined ? "Rp.0" : `Rp.${expense.expense}`}</h2>
+
                                         </div>
                                     </div>
                                     <ResponsiveContainer width="95%" height="50%">

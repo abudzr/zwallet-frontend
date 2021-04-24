@@ -1,62 +1,42 @@
 import { React, useState } from "react";
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 import style from '../../styles/reset.module.css'
-import { faEnvelope, faLock, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Swal from 'sweetalert2'
+import axios from 'axios'
 
 export default function Pin() {
+    const router = useRouter();
     const [data, setData] = useState({
         email: "",
-        password: "",
     });
-    const [isPasswordShow, setisPasswordShow] = useState(false)
 
-    const tooglePasswordVisibility = () => {
-        setisPasswordShow(!isPasswordShow)
-    }
 
     const handleFormChange = (event) => {
         const dataNew = {
             ...data,
         };
         dataNew[event.target.name] = event.target.value;
+        console.log(dataNew);
         setData(dataNew);
     };
 
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     dispatch(pin(data))
-    //         .then((res) => {
-    //             Swal.fire({
-    //                 title: "Success!",
-    //                 text: res,
-    //                 icon: "success",
-    //                 confirmButtonText: "Ok",
-    //                 confirmButtonColor: "#ffba33",
-    //             }).then((result) => {
-    //                 if (result.isConfirmed) {
-    //                     history.push("/");
-    //                 } else {
-    //                     history.push("/");
-    //                 }
-    //             });
-    //         })
-    //         .catch((err) => {
-    //             Swal.fire({
-    //                 title: "Error!",
-    //                 text: err,
-    //                 icon: "error",
-    //                 confirmButtonText: "Ok",
-    //                 confirmButtonColor: "#6a4029",
-    //             });
-    //         });
-    // };
+    const handleForgot = (event) => {
+        event.preventDefault();
+        axios
+            .post(`${process.env.api}/users/auth/forgot-password`, data)
+            .then(res => {
+                Swal.fire("Success", res.data.message, "success");
+                router.push('/auth/signin')
+            })
+            .catch(err => {
+                console.log(err);
+                Swal.fire("Error", "Reset Password Failed", "error");
 
-    // const handleClickSignUp = () => {
-    //     router.push("/auth/signup");
-    // };
+            })
+    }
 
     return (
         <main className={style['main-pin']}>
@@ -109,7 +89,7 @@ Password In a Minutes.</p>
                     <button
                         type="submit"
                         className={[["mt-5 btn"], style["btn-auth"]].join(" ")}
-                        onClick=""
+                        onClick={handleForgot}
                     >
                         Confirm
                     </button>

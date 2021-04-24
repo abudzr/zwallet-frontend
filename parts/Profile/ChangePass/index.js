@@ -34,7 +34,7 @@ function ChangePassword() {
             ...data,
         };
         dataNew[event.target.name] = event.target.value;
-        console.log(dataNew);
+        // console.log(dataNew);
         setData(dataNew);
     };
 

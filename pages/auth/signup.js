@@ -1,16 +1,22 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 import style from '../../styles/signup.module.css'
 import { faUser, faEnvelope, faLock, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Swal from 'sweetalert2'
+import axios from 'axios'
 
 export default function Signup() {
+    const { query } = useRouter();
+    const router = useRouter();
     const [data, setData] = useState({
         username: "",
         email: "",
         password: "",
+        firstname: "Your Firstname",
+        lastname: "Your Lastname",
     });
     const [isPasswordShow, setisPasswordShow] = useState(false)
 
@@ -23,8 +29,24 @@ export default function Signup() {
             ...data,
         };
         dataNew[event.target.name] = event.target.value;
+        // console.log(dataNew);
         setData(dataNew);
     };
+
+    const handleSignUp = (event) => {
+        event.preventDefault();
+        // console.log(data);
+        axios.post(`${process.env.api}/users/`, data)
+            .then(res => {
+                // console.log(res);
+                Swal.fire("Success", res.data.message, "success");
+                router.push('/auth/signin')
+            })
+            .catch(err => {
+                console.log(err);
+                Swal.fire("Error", "Sign Up Failed", "error");
+            })
+    }
 
     return (
         <main className={style['main-signup']}>
@@ -107,7 +129,7 @@ export default function Signup() {
                     <button
                         type="submit"
                         className={[["mt-5 btn"], style["btn-auth"]].join(" ")}
-                        onClick=""
+                        onClick={handleSignUp}
                     >
                         Sign Up
                     </button>
