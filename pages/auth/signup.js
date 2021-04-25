@@ -58,11 +58,11 @@ export default function Signup() {
                         <img
                             className={style['bgWave']}
                             src="/images/vector4.png"
-                            alt="Picture of the author"
+                            alt="Picture primary phone"
                         />
-                        <Image
+                        <img
                             src="/images/Groupphone.png"
-                            alt="Picture of the author"
+                            alt="Picture primary phone"
                             width={512.51338475284683}
                             height={536.4722634749991}
                         />
@@ -77,11 +77,17 @@ export default function Signup() {
                     </div>
                 </div>
             </section>
-            <aside className={[["m-5"], style["auth-signup"]].join(" ")}>
+            <aside className={style["auth-signup"]}>
+
                 <p className={style['title-aside']}>Start Accessing Banking Needs
                 With All Devices and All Platforms
                 With 30.000+ Users</p>
                 <p className={style['subtitle-aside']}>Transfering money is eassier than ever, you can access Zwallet wherever you are. Desktop, laptop, mobile phone? we cover all of that for you!</p>
+
+                {/* mobile */}
+                <h2 className={style['title-aside-mobile']}>Sign Up</h2>
+                <p className={style['subtitle-aside-mobile']}>Create your account to access Zwallet.</p>
+                {/* end mobile */}
 
                 <form className={[["mt-5"], style["form-aside"]].join(" ")}>
                     <div className="form-group ">
@@ -140,8 +146,7 @@ export default function Signup() {
                     </p>
 
                 </form>
-
-            </aside>
+            </aside >
         </main >
     );
 }

@@ -15,8 +15,8 @@
 
 .main-pin aside.auth-pin {
     padding-top: 80px;
-    padding-left: 40px;
-    padding-right: 100px;
+    padding-left: 60px;
+    padding-right: 70px;
 }
 
 .title-pin {
@@ -33,11 +33,6 @@
     left: 0px;
     height: 750px;
 }
-
-.image-pin {
-    /* position: absolute; */
-}
-
 
 .title-bottom-section {
     font-family: Nunito Sans;
@@ -77,30 +72,6 @@
 }
 
 
-.form-aside input {
-    margin-right: 21px;
-    height: 65px;
-    width: 53px;
-    border-radius: 10px;
-    background: #FFFFFF;
-    border: 1px solid rgba(169, 169, 169, 0.6);
-    box-sizing: border-box;
-    box-shadow: 0px 10px 75px rgba(147, 147, 147, 0.1);
-    text-align: center;
-    font-family: Nunito Sans;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 30px;
-    line-height: 41px;
-    color: #3A3D42;
-}
-
-.form-aside input::-webkit-inner-spin-button,
-.form-aside input::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
 .btn-auth {
     margin-top: 30px;
     margin-bottom: 30px;
@@ -119,8 +90,115 @@
     color: #88888F;
 }
 
+.btn-auths {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    height: 57px;
+    width: 433px;
+    border-radius: 12px;
+    background: #6379F4;
+    box-shadow: 0px 6px 75px rgba(100, 87, 87, 0.05);
+    border-radius: 12px;
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    color: #ffF;
+}
+
 .input-pin {
     margin-top: 100px;
     display: flex;
     justify-content: center;
+}
+
+.text-mobile,
+.title-aside-mobile,
+.subtitle-aside-mobile {
+    display: none;
+}
+
+.success {
+    margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .bgWave,
+    .image-pin,
+    .image-pin img,
+    .title-bottom-section,
+    .subtitle-bottom-section,
+    .title-aside,
+    .subtitle-aside {
+        display: none;
+    }
+
+    .main-pin section.auth-pins {
+        width: 210%;
+        background: #F8FAFD;
+        height: 650px;
+    }
+
+    .main-pin aside.auth-pin {
+        position: absolute;
+        top: 150px;
+        border-radius: 30px 30px 0px 0px;
+        background: #FFFFFF;
+        height: 650px;
+    }
+
+    .title-pin {
+        text-align: center;
+        font-family: Nunito Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 26px;
+        line-height: 35px;
+        color: #6379F4;
+    }
+
+
+    .text-mobile,
+    .title-aside-mobile,
+    .subtitle-aside-mobile {
+        display: block;
+    }
+
+    .text-mobile {
+        background: #6379F4;
+        text-align: center;
+    }
+
+    .title-aside-mobile {
+        font-family: Nunito Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 33px;
+        color: #3A3D42;
+        text-align: center;
+
+    }
+
+    .subtitle-aside-mobile {
+        font-family: Nunito Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 23px;
+        text-align: center;
+        color: rgba(58, 61, 66, 0.6);
+    }
+
+    .btn-auths {
+        margin-top: 150px !important;
+    }
+
+    .success {
+        margin-left: 200px;
+        margin-bottom: 20px;
+    }
 }

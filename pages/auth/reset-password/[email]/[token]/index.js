@@ -67,7 +67,7 @@ export default function ResetPassword() {
                             src="/images/vector4.png"
                             alt="Picture of the author"
                         />
-                        <Image
+                        <img
                             src="/images/Groupphone.png"
                             alt="Picture of the author"
                             width={512.51338475284683}
@@ -83,11 +83,17 @@ export default function ResetPassword() {
                     </div>
                 </div>
             </section>
-            <aside className={[["m-5"], style["auth-reset"]].join(" ")}>
+            <aside className={style["auth-reset"]}>
                 <p className={style['title-aside']}>Did You Forgot Your Password?<br />
 Don’t Worry, You Can Reset Your<br />
 Password In a Minutes.</p>
                 <p className={style['subtitle-aside']}>Now you can create a new password for your Zwallet<br /> account. Type your password twice so we can confirm your<br /> new passsword.</p>
+
+                {/* mobile */}
+                <h2 className={style['title-aside-mobile']}>Reset Password</h2>
+                <p className={style['subtitle-aside-mobile']}>Create and confirm your new password so
+you can login to Zwallet.</p>
+                {/* end mobile */}
                 <form>
                     <div className="form-group mt-5">
                         <FontAwesomeIcon icon={faLock} className={style.iconLock} />
@@ -118,9 +124,6 @@ Password In a Minutes.</p>
                         <FontAwesomeIcon icon={isPasswordShow2 ? faEye : faEyeSlash} className={style.iconPass2} onClick={tooglePasswordVisibility2} />
                     </div>
                 </form>
-
-
-
                 <button
                     type="submit"
                     className={[["mt-5 btn"], style["btn-auth"]].join(" ")}

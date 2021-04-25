@@ -11,20 +11,28 @@ export default function Pin() {
     console.log(query.email);
     const router = useRouter();
     const [data, setData] = useState(null);
+    const [show, setShow] = useState(false)
 
     const handlePinChange = (value) => {
         setData(value);
     };
 
+    const handleLogin = () => {
+        router.push("/auth/signin")
+    }
+
+
+
     const handleCreatePin = (event) => {
         event.preventDefault();
         const url = `${process.env.api}/users/new/create-pin/?email=${query.email}`
-        console.log(url);
+        // console.log(url);
         axios.put(url, {
             pin: data
         })
             .then((res) => {
-                router.push("/auth/signin")
+                setShow(true)
+                // router.push("/auth/signin")
                 Swal.fire("Success", "Create Pin Success!", "success");
 
             }, (err) => {
@@ -36,7 +44,6 @@ export default function Pin() {
 
     return (
         <main className={style['main-pin']}>
-
             <section className={style['auth-pins']}>
                 <div className="container">
                     <h2 className={[["pt-5"], ["ml-5"], style["title-pin"]].join(" ")}>Zwallet</h2>
@@ -46,7 +53,7 @@ export default function Pin() {
                             src="/images/vector4.png"
                             alt="Picture of the author"
                         />
-                        <Image
+                        <img
                             src="/images/Groupphone.png"
                             alt="Picture of the author"
                             width={512.51338475284683}
@@ -62,32 +69,67 @@ export default function Pin() {
                     </div>
                 </div>
             </section>
-            <aside className={[["m-5"], style["auth-pin"]].join(" ")}>
-                <p className={style['title-aside']}>Secure Your Account, Your Wallet,
+            <aside className={style["auth-pin"]}>
+
+                {show === false && (
+                    <>
+                        <p className={style['title-aside']}>Secure Your Account, Your Wallet,
                 and Your Data With 6 Digits PIN <br />That You Created Yourself.</p>
-                <p className={style['subtitle-aside']}>Create 6 digits pin to secure all your money and your data in Zwallet app. Keep it secret and don’t tell anyone about your Zwallet account password and the PIN.</p>
-                <div className={style['input-pin']}>
-                    <InputPin
-                        length={6}
-                        secret
-                        onChange={handlePinChange}
-                        initialValue=""
-                        type="numeric"
-                        inputMode="number"
-                        autoSelect={true}
-                        regexCriteria={/^[ A-Za-z0-9_@./#&+-]*$/}
-                        focus={true}
-                    />
-                </div>
+                        <p className={style['subtitle-aside']}>Create 6 digits pin to secure all your money and your data in Zwallet app. Keep it secret and don’t tell anyone about your Zwallet account password and the PIN.</p>
+                        {/* mobile */}
+                        <h2 className={style['title-aside-mobile']}>Create Security PIN</h2>
+                        <p className={style['subtitle-aside-mobile']}>Create a PIN that’s contain 6 digits number for security purpose in Zwallet.</p>
+                        {/* end mobile */}
 
-                <button
-                    type="submit"
-                    className={[["mt-5 btn"], style["btn-auth"]].join(" ")}
-                    onClick={handleCreatePin}
-                >
-                    Confirm
-                    </button>
+                        <div className={style['input-pin']}>
+                            <InputPin
+                                length={6}
+                                secret
+                                onChange={handlePinChange}
+                                initialValue=""
+                                type="numeric"
+                                inputMode="number"
+                                autoSelect={true}
+                                regexCriteria={/^[ A-Za-z0-9_@./#&+-]*$/}
+                                focus={true}
+                            />
+                        </div>
 
+                        <button
+                            type="submit"
+                            className={[["mt-5 btn"], style["btn-auth"]].join(" ")}
+                            onClick={handleCreatePin}
+                        >
+                            Confirm
+                        </button>
+                    </>
+                )}
+
+                {show === true && (
+                    <>
+                        <img
+                            className={style.success}
+                            src="/images/success.png"
+                            alt="Picture success"
+                        />
+                        <p className={style['title-aside']}>Your PIN Was Successfully Created</p>
+                        <p className={style['subtitle-aside']}>Your PIN was successfully created and you can now access all the features in Zwallet. Login to your new account and start exploring!</p>
+                        {/* mobile */}
+                        <h2 className={style['title-aside-mobile']}>PIN Successfully Created</h2>
+                        <p className={style['subtitle-aside-mobile']}>Your PIN was successfully created and you can now access all the features in Zwallet. Login to your new account and start exploring!</p>
+                        {/* end mobile */}
+
+
+
+                        <button
+                            type="submit"
+                            className={[["mt-5 btn"], style["btn-auths"]].join(" ")}
+                            onClick={handleLogin}
+                        >
+                            Login Now
+                        </button>
+                    </>
+                )}
 
             </aside>
         </main >

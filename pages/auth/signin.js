@@ -53,7 +53,7 @@ export default function Signin() {
                             src="/images/vector4.png"
                             alt="Picture of the author"
                         />
-                        <Image
+                        <img
                             src="/images/Groupphone.png"
                             alt="Picture of the author"
                             width={512.51338475284683}
@@ -69,11 +69,17 @@ export default function Signin() {
                     </div>
                 </div>
             </section>
-            <aside className={[["m-5"], style["auth-login"]].join(" ")}>
+            <aside className={style["auth-login"]}>
                 <p className={style['title-aside']}>Start Accessing Banking Needs
                 With All Devices and All Platforms
                 With 30.000+ Users</p>
                 <p className={style['subtitle-aside']}>Transfering money is eassier than ever, you can access Zwallet wherever you are. Desktop, laptop, mobile phone? we cover all of that for you!</p>
+
+                {/* mobile */}
+                <h2 className={style['title-aside-mobile']}>Login</h2>
+                <p className={style['subtitle-aside-mobile']}>Login to your existing account to access
+all the features in Zwallet.</p>
+                {/* end mobile */}
 
                 <form className={[["mt-5"], style["form-aside"]].join(" ")}>
                     <div className="form-group">
