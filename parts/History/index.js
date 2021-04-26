@@ -4,7 +4,7 @@ import style from '../../styles/history.module.css'
 import { Pagination, PaginationItem, PaginationLink } from "reactstrap";
 
 
-function HistoryParts() {
+export default function HistoryParts() {
     // const [dataIsLogin, setDataIsLogin] = useState([]);
     const [user, setUser] = useState([]);
     const [page, setPage] = useState(1);
@@ -58,10 +58,6 @@ function HistoryParts() {
         },
     ];
 
-
-
-
-
     const handleClickPage = (index) => {
         setPage(index + 1);
     };
@@ -76,11 +72,7 @@ function HistoryParts() {
         // http://localhost:8080/api/v1/transaction/user/7?page=1&perPage=2&sortBy=createdAt&order=asc
         const url = `${process.env.api}/transaction/user/${id}?page=${page}&perPage=${queryLimit}&order=${queryOrder}&sortBy=${querySort}`;
         // console.log(url);
-        axios.get(url, {
-            headers: {
-                Authorization: 'Bearer ' + token
-            }
-        })
+        axios.get(url)
             .then((res) => {
                 const data = res.data.data
                 // console.log(res.data);
@@ -203,5 +195,3 @@ function HistoryParts() {
         </div>
     )
 }
-
-export default HistoryParts

@@ -27,7 +27,7 @@ export default function Signin() {
 
     const handleLogin = (event) => {
         event.preventDefault();
-        const url = axios.post('http://localhost:8080/api/v1/users/auth/login', data)
+        const url = axios.post(`${process.env.api}/users/auth/login`, data)
             .then(res => {
                 localStorage.setItem("id", res.data.data.id)
                 // localStorage.setItem("pin", res.data.data.pin)

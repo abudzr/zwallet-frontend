@@ -36,7 +36,7 @@ function Navbar() {
             .catch((err) => {
                 console.log(err);
             })
-    }, []);
+    }, [user]);
 
     let isAuthenticated;
     if (typeof window !== "undefined") {
@@ -77,7 +77,7 @@ function Navbar() {
                     {image ? (
                         <img
                             className={style["profile-img"]}
-                            src={`http://localhost:8080/${image}`}
+                            src={`${process.env.api_img}${image}`}
                             alt="ImgUser"
                         />
                     ) : (

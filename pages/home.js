@@ -69,7 +69,7 @@ function Home() {
 
     useEffect(() => {
         const token = localStorage.getItem('token')
-        const url = 'http://localhost:8080/api/v1/users/find-one';
+        const url = `${process.env.api}/users/find-one`;
         axios.get(url, {
             headers: {
                 Authorization: 'Bearer ' + token
@@ -94,7 +94,7 @@ function Home() {
         }
         const id = user.id
         const url = `${process.env.api}/transaction/income/${id}`;
-        console.log(url);
+        // console.log(url);
         axios.get(url, {
             headers: {
                 Authorization: 'Bearer ' + token
@@ -117,7 +117,7 @@ function Home() {
         }
         const id = user.id
         const url = `${process.env.api}/transaction/expense/${id}`;
-        console.log(url);
+        // console.log(url);
         axios.get(url, {
             headers: {
                 Authorization: 'Bearer ' + token

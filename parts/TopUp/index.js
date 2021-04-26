@@ -18,16 +18,18 @@ function PartsTopUp() {
     const handleFormChange = (event) => {
         const dataNew = { ...data };
         dataNew[event.target.name] = event.target.value;
+        // console.log(dataNew);
         setData(dataNew);
     };
 
     const handleDropdownChange = (e) => {
+        // console.log(e.target.value);
         setSelectValue(e.target.value);
     }
 
     const handleConfirm = (event) => {
         event.preventDefault();
-        const url = axios.post('http://localhost:8080/api/v1/transaction/topup', {
+        const url = axios.post(`${process.env.api}/transaction/user/topup`, {
             idUser: user,
             amount: data.amount,
             notes: selectValue
@@ -43,6 +45,7 @@ function PartsTopUp() {
                 router.push('/home')
             })
             .catch(err => {
+                console.log(err);
                 Swal.fire({
                     title: "Error!",
                     text: err.response.data.message,
@@ -55,7 +58,7 @@ function PartsTopUp() {
 
     useEffect(() => {
         const token = localStorage.getItem('token')
-        const url = 'http://localhost:8080/api/v1/users/find-one';
+        const url = `${process.env.api}/users/find-one`;
         axios.get(url, {
             headers: {
                 Authorization: 'Bearer ' + token
@@ -63,6 +66,7 @@ function PartsTopUp() {
         })
             .then((res) => {
                 const data = res.data.data[0]
+                console.log(res.data.data[0]);
                 setUser(data.id)
             })
             .catch((err) => {
