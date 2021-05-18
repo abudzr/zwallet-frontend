@@ -96,7 +96,7 @@ you can login to Zwallet.</p>
                 {/* end mobile */}
                 <form>
                     <div className="form-group mt-5">
-                        <FontAwesomeIcon icon={faLock} className={style.iconLock} />
+                        <FontAwesomeIcon icon={faLock} className={data.password === '' ? style.iconLock : style["iconLock-active"]} />
                         <input
                             type={(isPasswordShow) ? "text" : "password"}
                             className={[["form-control mt-1"], style["form-control"]].join(
@@ -110,7 +110,7 @@ you can login to Zwallet.</p>
                         <FontAwesomeIcon icon={isPasswordShow ? faEye : faEyeSlash} className={style.iconPass} onClick={tooglePasswordVisibility} />
                     </div>
                     <div className="form-group mt-5">
-                        <FontAwesomeIcon icon={faLock} className={style.iconLock2} />
+                        <FontAwesomeIcon icon={faLock} className={data.confirmPassword === '' ? style.iconLock2 : style["iconLock2-active"]} />
                         <input
                             type={(isPasswordShow2) ? "text" : "password"}
                             className={[["form-control mt-1"], style["form-control"]].join(
@@ -118,19 +118,22 @@ you can login to Zwallet.</p>
                             )}
                             name="confirmPassword"
                             id="confirmPassword"
-                            placeholder="Create new password"
+                            placeholder="Confirm password"
                             onChange={handleFormChange}
                         />
                         <FontAwesomeIcon icon={isPasswordShow2 ? faEye : faEyeSlash} className={style.iconPass2} onClick={tooglePasswordVisibility2} />
                     </div>
                 </form>
-                <button
-                    type="submit"
-                    className={[["mt-5 btn"], style["btn-auth"]].join(" ")}
-                    onClick={handleCreateReset}
-                >
-                    Reset Password
+                <div className="d-flex justify-content-center">
+                    <button
+                        type="submit"
+                        className={data.password !== data.confirmPassword ? [["mt-5 btn"], style["btn-auth"]].join(" ") : [["mt-5 btn"], style["btn-auth-active"]].join(" ")}
+                        disabled={data.password !== data.confirmPassword ? true : false}
+                        onClick={handleCreateReset}
+                    >
+                        Reset Password
                     </button>
+                </div>
             </aside>
         </main >
     );

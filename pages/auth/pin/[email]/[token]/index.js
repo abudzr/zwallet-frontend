@@ -94,14 +94,15 @@ export default function Pin() {
                                 focus={true}
                             />
                         </div>
-
-                        <button
-                            type="submit"
-                            className={[["mt-5 btn"], style["btn-auth"]].join(" ")}
-                            onClick={handleCreatePin}
-                        >
-                            Confirm
+                        <div className="d-flex justify-content-center">
+                            <button
+                                type="submit"
+                                className={data === null ? [["mt-5 btn"], style["btn-auth"]].join(" ") : [["mt-5 btn"], style["btn-auth-active"]].join(" ")}
+                                onClick={handleCreatePin}
+                            >
+                                Confirm
                         </button>
+                        </div>
                     </>
                 )}
 
@@ -120,14 +121,16 @@ export default function Pin() {
                         {/* end mobile */}
 
 
+                        <div className="d-flex justify-content-center">
 
-                        <button
-                            type="submit"
-                            className={[["mt-5 btn"], style["btn-auths"]].join(" ")}
-                            onClick={handleLogin}
-                        >
-                            Login Now
+                            <button
+                                type="submit"
+                                className={[["mt-5 btn"], style["btn-auths"]].join(" ")}
+                                onClick={handleLogin}
+                            >
+                                Login Now
                         </button>
+                        </div>
                     </>
                 )}
 
