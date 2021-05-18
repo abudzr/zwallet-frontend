@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import style from '../../styles/history.module.css'
 import { Pagination, PaginationItem, PaginationLink } from "reactstrap";
+import { useRouter } from 'next/router'
 
 
 export default function HistoryParts() {
+    const router = useRouter();
     // const [dataIsLogin, setDataIsLogin] = useState([]);
     const [user, setUser] = useState([]);
     const [page, setPage] = useState(1);
@@ -62,6 +64,10 @@ export default function HistoryParts() {
         setPage(index + 1);
     };
 
+    const handleClickDetail = (data) => {
+        router.push(`/history/${data}`)
+    };
+
     let token;
     if (typeof window !== "undefined") {
         token = localStorage.getItem("token");
@@ -91,7 +97,7 @@ export default function HistoryParts() {
             <h3>Transaction History</h3>
             {user.map((item, index) => {
                 return (
-                    <div className={[['d-flex'], ['mb-3'], ['justify-content-between'], style['card-transaction-history']].join(" ")} key={index}>
+                    <div className={[['d-flex'], ['mb-3'], ['justify-content-between'], style['card-transaction-history']].join(" ")} key={index} onClick={() => handleClickDetail(item.id)}>
                         <img src={`${process.env.api_img}${item.image}`}
                             alt="Picture Transaction"
                             width={70}

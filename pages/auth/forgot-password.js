@@ -81,7 +81,7 @@ you a password reset link.</p>
 
                 <form className={[["mt-5"], style["form-aside"]].join(" ")}>
                     <div className="form-group">
-                        <FontAwesomeIcon icon={faEnvelope} className={style.iconReset} />
+                        <FontAwesomeIcon icon={faEnvelope} className={data.email === "" ? style.iconReset : style["iconReset-active"]} />
                         <input
                             type="email"
                             className={[["form-control mt-1"], style["form-control"]].join(
@@ -93,14 +93,16 @@ you a password reset link.</p>
                             onChange={handleFormChange}
                         />
                     </div>
-                    <button
-                        type="submit"
-                        className={[["mt-5 btn"], style["btn-auth"]].join(" ")}
-                        onClick={handleForgot}
-                    >
-                        Confirm
+                    <div className="d-flex justify-content-center">
+                        <button
+                            type="submit"
+                            className={data.email === "" ? [["mt-5 btn"], style["btn-auth"]].join(" ") : [["mt-5 btn"], style["btn-auth-active"]].join(" ")}
+                            disabled={data.email === "" ? true : false}
+                            onClick={handleForgot}
+                        >
+                            Confirm
                     </button>
-
+                    </div>
                 </form>
 
             </aside>

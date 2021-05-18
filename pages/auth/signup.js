@@ -91,7 +91,7 @@ export default function Signup() {
 
                 <form className={[["mt-5"], style["form-aside"]].join(" ")}>
                     <div className="form-group ">
-                        <FontAwesomeIcon icon={faUser} className={style.iconSignup} />
+                        <FontAwesomeIcon icon={faUser} className={data.username === "" ? style.iconUsername : style["iconSignup-active"]} />
                         <input
                             type="text"
                             className={[["form-control mt-1"], style["form-control"]].join(
@@ -104,7 +104,7 @@ export default function Signup() {
                         />
                     </div>
                     <div className="form-group mt-5">
-                        <FontAwesomeIcon icon={faEnvelope} className={style.iconSignup} />
+                        <FontAwesomeIcon icon={faEnvelope} className={data.email === "" ? style.iconEmail : style["iconSignup-active"]} />
                         <input
                             type="email"
                             className={[["form-control mt-1"], style["form-control"]].join(
@@ -117,7 +117,7 @@ export default function Signup() {
                         />
                     </div>
                     <div className="form-group mt-5">
-                        <FontAwesomeIcon icon={faLock} className={style.iconSignup} />
+                        <FontAwesomeIcon icon={faLock} className={data.password === "" ? style.iconPassword : style["iconSignup-active"]} />
 
                         <input
                             type={(isPasswordShow) ? "text" : "password"}
@@ -131,14 +131,16 @@ export default function Signup() {
                         />
                         <FontAwesomeIcon icon={isPasswordShow ? faEye : faEyeSlash} className={style.iconPass} onClick={tooglePasswordVisibility} />
                     </div>
-
-                    <button
-                        type="submit"
-                        className={[["mt-5 btn"], style["btn-auth"]].join(" ")}
-                        onClick={handleSignUp}
-                    >
-                        Sign Up
+                    <div className="d-flex justify-content-center">
+                        <button
+                            type="submit"
+                            className={data.email === "" && data.username === "" && data.password === "" ? [["mt-5 btn"], style["btn-auth"]].join(" ") : [["mt-5 btn"], style["btn-auth-active"]].join(" ")}
+                            onClick={handleSignUp}
+                            disabled={data.email === "" && data.username === "" && data.password === "" ? true : false}
+                        >
+                            Sign Up
                     </button>
+                    </div>
                     <p className={style['dont-haveacc']}>Already have an account? Let’s
                         <Link href="/auth/signin">
                             <a> Login</a>

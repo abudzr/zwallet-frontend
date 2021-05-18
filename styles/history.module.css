@@ -26,6 +26,7 @@
     background: #FFFFFF;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .card-transaction-history h5 {
@@ -69,4 +70,62 @@
     line-height: 22px;
     margin-top: 27px;
     color: #1EC15F;
+}
+
+.detail-transfer {
+    padding-top: 15px;
+    padding-left: 20px;
+    margin-bottom: 15px;
+    height: 92px;
+    width: 600px;
+    border-radius: 10px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+}
+
+.detail-transfer span {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    color: #7A7886;
+}
+
+.detail-transfer p {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 30px;
+    color: #514F5B;
+}
+
+.form-users {
+    height: 110px;
+    width: 600px;
+    border-radius: 10px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.nameSearch {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+    color: #4D4B57;
+}
+
+.number-Phone {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    color: #7A7886;
 }

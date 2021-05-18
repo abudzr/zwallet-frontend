@@ -83,7 +83,7 @@ all the features in Zwallet.</p>
 
                 <form className={[["mt-5"], style["form-aside"]].join(" ")}>
                     <div className="form-group">
-                        <FontAwesomeIcon icon={faEnvelope} className={style.iconLogin} />
+                        <FontAwesomeIcon icon={faEnvelope} className={data.email === "" ? style.iconEmail : style["iconLogin-active"]} />
                         <input
                             type="email"
                             className={[["form-control mt-1"], style["form-control"]].join(
@@ -96,7 +96,7 @@ all the features in Zwallet.</p>
                         />
                     </div>
                     <div className="form-group mt-5">
-                        <FontAwesomeIcon icon={faLock} className={style.iconLogin} />
+                        <FontAwesomeIcon icon={faLock} className={data.password === "" ? style.iconPassword : style["iconLogin-active"]} />
                         <input
                             type={(isPasswordShow) ? "text" : "password"}
                             className={[["form-control mt-1"], style["form-control"]].join(
@@ -114,13 +114,17 @@ all the features in Zwallet.</p>
                             <a>Forgot Password?</a>
                         </Link>
                     </div>
-                    <button
-                        type="submit"
-                        className={[["mt-5 btn"], style["btn-auth"]].join(" ")}
-                        onClick={handleLogin}
-                    >
-                        Login
+                    <div className="d-flex justify-content-center">
+                        <button
+                            type="submit"
+
+                            className={data.email === "" && data.password === "" ? [["mt-5 btn"], style["btn-auth"]].join(" ") : [["mt-5 btn"], style["btn-auth-active"]].join(" ")}
+                            disabled={data.email === "" && data.password === "" ? true : false}
+                            onClick={handleLogin}
+                        >
+                            Login
                     </button>
+                    </div>
                     <p className={style['dont-haveacc']}>Don’t have an account? Let’s
                         <Link href="/auth/signup">
                             <a> Sign Up</a>

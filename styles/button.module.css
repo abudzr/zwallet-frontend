@@ -15,6 +15,24 @@
     color: #FFFFFF;
 }
 
+.btn-auth-active {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    height: 57px;
+    width: 433px;
+    border-radius: 12px;
+    background: #6379F4;
+    box-shadow: 0px 6px 75px rgba(100, 87, 87, 0.05);
+    border-radius: 12px;
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    color: #fff;
+}
+
 .btn-signup {
     height: 48px;
     width: 120px;

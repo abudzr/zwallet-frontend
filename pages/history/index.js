@@ -9,7 +9,7 @@ import HistoryParts from '../../parts/History'
 function history() {
 
     return (
-        <Layout title="Top Up | Z-wallet" >
+        <Layout title="History| Z-wallet" >
             <Navbar />
 
             <div className="container">

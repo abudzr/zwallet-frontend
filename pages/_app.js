@@ -2,24 +2,16 @@ import '../styles/globals.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import { GoogleFonts } from "next-google-fonts";
 import Head from "next/head";
-// import 'bootstrap/dist/js/bootstrap.js'
-// import Navbar from '../components/module/Navbar'
+import { useStore } from "../configs/redux"
+import { Provider } from 'react-redux'
 
-// const islogin = () => {
-//   if (typeof window !== "undefined") {
-//     if (localStorage.getItem('token')) {
-//       return true
-//     } else {
-//       return false
-//     }
-//   }
-// }
+
 function MyApp({ Component, pageProps }) {
+  const store = useStore(pageProps.initialReduxState);
+
   return (
-    <>
-      {/* {islogin() ?
-        <Navbar /> : <div></div>
-      } */}
+    <Provider store={store}>
+
       <GoogleFonts href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap" />
       <Head>
         <script
@@ -35,7 +27,8 @@ function MyApp({ Component, pageProps }) {
         ></script>
       </Head>
       <Component {...pageProps} />
-    </>
+    </Provider>
+
   )
 }
 
