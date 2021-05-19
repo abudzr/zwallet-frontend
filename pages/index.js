@@ -5,7 +5,6 @@ import React, { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Navbar from '../components/module/Navbar'
 import Footer from '../components/module/Footer'
-import Image from 'next/image'
 import { faLock, faDownload, faPhone } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -43,7 +42,7 @@ oftenly wasting much of your times.</p>
                 alt="Picture header"
               />
               <div className={style['image-header']}>
-                <Image
+                <img
                   src="/images/png-phone.png"
                   alt="Picture header"
                   width={278.51338475284683}
@@ -102,7 +101,7 @@ oftenly wasting much of your times.</p>
             </div>
             <div className="col-lg-6  d-flex flex-wrap ">
               <div className={style['logo-airbnb']}>
-                <Image
+                <img
                   src="/images/logo1.png"
                   alt="Picture Partner"
                   width={150}
@@ -110,7 +109,7 @@ oftenly wasting much of your times.</p>
                 />
               </div>
               <div className={style['logo-canon']}>
-                <Image
+                <img
                   src="/images/logo2.png"
                   alt="Picture Partner"
                   width={172}
@@ -118,7 +117,7 @@ oftenly wasting much of your times.</p>
                 />
               </div>
               <div className={style['logo-dell']}>
-                <Image
+                <img
                   src="/images/logo3.png"
                   alt="Picture Partner"
                   width={87.73}
@@ -126,7 +125,7 @@ oftenly wasting much of your times.</p>
                 />
               </div>
               <div className={style['logo-microsoft']}>
-                <Image
+                <img
                   src="/images/logo4.png"
                   alt="Picture Partner"
                   width={131}
@@ -134,7 +133,7 @@ oftenly wasting much of your times.</p>
                 />
               </div>
               <div className={style['logo-dropbox']}>
-                <Image
+                <img
                   src="/images/logo5.png"
                   alt="Picture Partner"
                   width={132}
@@ -142,7 +141,7 @@ oftenly wasting much of your times.</p>
                 />
               </div>
               <div className={style['logo-hm']}>
-                <Image
+                <img
                   src="/images/logo6.png"
                   alt="Picture Partner"
                   width={103}
@@ -158,7 +157,7 @@ oftenly wasting much of your times.</p>
           <div className="row">
 
             <div className={[["col-lg-5"], style["image-feature"]].join(" ")}>
-              <Image
+              <img
                 src="/images/png-phone2.png"
                 alt="Picture feature"
                 width={400}

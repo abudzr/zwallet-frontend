@@ -1,6 +1,5 @@
 import { React, useState } from "react";
 import { useRouter } from 'next/router'
-import Image from 'next/image'
 import style from '../../../../../styles/resetpass.module.css'
 import axios from 'axios'
 import Swal from 'sweetalert2'

@@ -1,6 +1,5 @@
 import { React, useState } from "react";
 import { useRouter } from 'next/router'
-import Image from 'next/image'
 import style from '../../../../../styles/pin.module.css'
 import InputPin from "react-pin-input";
 import axios from 'axios'
