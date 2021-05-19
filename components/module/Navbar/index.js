@@ -46,12 +46,12 @@ function Navbar() {
 
         return (
 
-            <nav className="navbar navbar-expand-lg">
-                <div className="container">
+            <nav className="navbar">
+                <div className="container navbar-dekstop">
                     <Link href="/">
                         <a className={style['navbar-brand']} >Zwallet</a>
                     </Link>
-                    <div className="d-flex ">
+                    <div className="d-flex btn-landing ">
                         <div className="mr-5 pt-5">
                             <Button
                                 title="Login" btn="btn-login" onClick={handleLogin}

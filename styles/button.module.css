@@ -192,3 +192,20 @@
     text-align: center;
     color: #FFFFFF;
 }
+
+@media (max-width:576px) {
+
+    .btn-login,
+    .btn-signup {
+        position: absolute;
+        top: 30px;
+    }
+
+    .btn-login {
+        right: 140px;
+    }
+
+    .btn-signup {
+        right: 10px;
+    }
+}

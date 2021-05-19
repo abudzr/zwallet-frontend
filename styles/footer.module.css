@@ -74,3 +74,15 @@
     color: #EFEFEF;
     margin-right: 30px;
 }
+
+@media (max-width:576px) {
+    .footer {
+        display: none;
+    }
+}
+
+@media (max-width:768px) {
+    .footer {
+        display: none;
+    }
+}

@@ -31,7 +31,7 @@ header.landing-page p {
     position: absolute;
     top: -120px;
     height: 658px;
-    width: 592px;
+    width: 100%;
     background: #6379F4;
     border-radius: 0px 0px 0px 200px;
     z-index: -1;
@@ -44,7 +44,7 @@ header.landing-page p {
 }
 
 .bgHeader {
-    width: 590px;
+    width: 100%;
     height: 229px;
 }
 
@@ -96,8 +96,10 @@ header.landing-page p {
     border-radius: 25px;
     background: #FFFFFF;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
-    margin-right: 10px;
+    margin-right: auto;
+    margin-left: auto;
     margin-top: 50px;
+    padding-top: 10px;
     padding-left: 35px;
     padding-right: 35px;
 }
@@ -274,4 +276,195 @@ header.landing-page p {
     line-height: 31px;
     text-align: center;
     color: #3A3D42;
+}
+
+@media (max-width:576px) {
+
+    .image-header,
+    .bgHeader,
+    .image-feature {
+        display: none;
+    }
+
+    header.landing-page {
+        height: 450px;
+    }
+
+    header.landing-page h1 {
+        margin-top: 80px;
+        font-size: 40px;
+        line-height: 60px;
+    }
+
+    header.landing-page p {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        font-size: 16px;
+        line-height: 25px;
+    }
+
+    .bg-landing-page {
+        top: -470px;
+        right: 0px;
+        height: 120px;
+        width: 70%;
+        border-radius: 0px 0px 0px 80px;
+    }
+
+    .landing-page-section {
+        padding-top: 30px;
+        height: 1500px;
+    }
+
+    .landing-page-section h1,
+    .section-testimoni h1 {
+        font-size: 40px;
+        line-height: 60px;
+    }
+
+    .landing-page-section p,
+    .section-testimoni p {
+        margin-top: 10px;
+        font-size: 16px;
+        line-height: 25px;
+    }
+
+    .landing-page-section h4 {
+        font-size: 20px;
+    }
+
+    .card-section p {
+        font-size: 14px;
+    }
+
+    .section-trusted {
+        height: 650px;
+    }
+
+    .section-trusted h1 {
+        font-size: 40px;
+        line-height: 60px;
+    }
+
+    .section-trusted p {
+        font-size: 16px;
+    }
+
+    .logo-dell {
+        margin-left: 20px;
+        margin-bottom: 20px;
+    }
+
+    .logo-microsoft {
+        margin-left: 70px;
+    }
+
+    .section-feature h1 {
+        font-size: 40px;
+        line-height: 60px;
+    }
+
+    .section-feature .card-feature {
+        padding-top: 15px;
+        width: 100%;
+    }
+
+    .section-feature .card-feature h6 {
+        font-size: 18px;
+        line-height: 25px;
+    }
+
+    .section-feature .card-feature p {
+        font-size: 16px;
+        line-height: 25px;
+    }
+
+    .section-testimoni {
+        height: 720px;
+    }
+
+    .card-overflow {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .card-testimoni {
+        height: auto;
+    }
+
+    .image-testi {
+        width: 250px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .image-testimoni {
+        margin-left: 100px;
+    }
+}
+
+@media (min-width:577px) and (max-width:768px) {
+
+    .image-header,
+    .bgHeader,
+    .image-feature {
+        display: none;
+    }
+
+    header.landing-page {
+        height: 500px;
+    }
+
+    .bg-landing-page {
+        top: -550px;
+        right: 0px;
+        height: 150px;
+        width: 70%;
+        border-radius: 0px 0px 0px 80px;
+    }
+
+    .landing-page-section {
+        height: 1600px;
+    }
+
+    .section-trusted {
+        height: 700px;
+    }
+
+    .logo-dell {
+        margin-right: 50px;
+    }
+
+    .section-feature .card-feature {
+        width: 100%;
+    }
+
+    .section-testimoni {
+        height: 800px;
+    }
+
+    .card-overflow {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .card-testimoni {
+        height: auto;
+    }
+
+    .image-testi {
+        width: 250px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .image-testimoni {
+        margin-left: 100px;
+    }
 }

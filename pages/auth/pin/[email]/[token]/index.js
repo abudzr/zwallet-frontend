@@ -8,7 +8,6 @@ import Swal from 'sweetalert2'
 
 export default function Pin() {
     const { query } = useRouter();
-    console.log(query.email);
     const router = useRouter();
     const [data, setData] = useState(null);
     const [show, setShow] = useState(false)
@@ -99,6 +98,7 @@ export default function Pin() {
                                 type="submit"
                                 className={data === null ? [["mt-5 btn"], style["btn-auth"]].join(" ") : [["mt-5 btn"], style["btn-auth-active"]].join(" ")}
                                 onClick={handleCreatePin}
+                                disabled={data && data.length !== 6 ? true : false}
                             >
                                 Confirm
                         </button>

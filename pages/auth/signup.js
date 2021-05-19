@@ -1,14 +1,16 @@
-import { React, useState, useEffect } from "react";
+import { React, useState } from "react";
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import Image from 'next/image'
 import style from '../../styles/signup.module.css'
 import { faUser, faEnvelope, faLock, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Swal from 'sweetalert2'
 import axios from 'axios'
+import { useDispatch } from "react-redux";
+import { signUp } from "../../configs/redux/actions/user";
 
 export default function Signup() {
+    const dispatch = useDispatch();
     const { query } = useRouter();
     const router = useRouter();
     const [data, setData] = useState({
@@ -36,16 +38,14 @@ export default function Signup() {
     const handleSignUp = (event) => {
         event.preventDefault();
         // console.log(data);
-        axios.post(`${process.env.api}/users/`, data)
-            .then(res => {
-                // console.log(res);
-                Swal.fire("Success", res.data.message, "success");
-                router.push('/auth/signin')
+        dispatch(signUp(data))
+            .then((res) => {
+                Swal.fire("Success", res, "success");
+                router.push("/auth/signin");
             })
-            .catch(err => {
-                console.log(err);
-                Swal.fire("Error", "Sign Up Failed", "error");
-            })
+            .catch((err) => {
+                Swal.fire("Something Error!", err, "error");
+            });
     }
 
     return (
