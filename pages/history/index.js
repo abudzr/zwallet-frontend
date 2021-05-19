@@ -4,7 +4,7 @@ import Sidebar from '../../components/module/Sidebar'
 import Navbar from '../../components/module/Navbar'
 import Footer from '../../components/module/Footer'
 import HistoryParts from '../../parts/History'
-
+import withAuth from '../../helper/authNext'
 
 function history() {
 
@@ -17,7 +17,7 @@ function history() {
                     <div className="col-lg-4">
                         <Sidebar />
                     </div>
-                    <div className="col-lg-8">
+                    <div className="col-lg-8 col-12">
                         <HistoryParts />
                     </div>
                 </div >
@@ -28,4 +28,4 @@ function history() {
     )
 }
 
-export default history
+export default withAuth(history)

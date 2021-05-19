@@ -1,6 +1,5 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { useRouter } from 'next/router'
-import Image from 'next/image'
 import style from '../../styles/reset.module.css'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -37,7 +36,11 @@ export default function Pin() {
 
             })
     }
-
+    useEffect(() => {
+        if (localStorage.getItem("token")) {
+            router.push("/home");
+        }
+    }, []);
     return (
         <main className={style['main-pin']}>
 

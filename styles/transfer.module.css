@@ -236,3 +236,76 @@
     text-align: center;
     color: #7A7886;
 }
+
+.img-nodata {
+    object-fit: cover;
+    height: 200px;
+    width: 200px;
+}
+
+@media (max-width:576px) {
+
+    .card-transfer,
+    .form-receiver input,
+    .form-users,
+    .detail-transfer {
+        width: 100%;
+    }
+
+    .card-transfer {
+        padding-right: 10px;
+    }
+
+    .form-pin {
+        margin-right: 10px;
+        height: 65px;
+        width: 53px;
+        border-radius: 10px;
+        font-family: Nunito Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 30px;
+        line-height: 41px;
+        color: #3A3D42;
+    }
+
+    .btn-modal {
+        border: none;
+        margin-top: -70px;
+    }
+
+    .success-img {
+        margin-left: 140px;
+        margin-bottom: 10px;
+    }
+
+    .download {
+        display: none;
+    }
+
+    .share {
+        display: none;
+
+    }
+
+
+}
+
+@media (min-width:576px) and (max-width:768px) {
+
+    .card-transfer,
+    .form-receiver input,
+    .form-users,
+    .detail-transfer {
+        width: 100%;
+    }
+
+    .download {
+        display: none;
+    }
+
+    .share {
+        display: none;
+
+    }
+}

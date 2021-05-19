@@ -13,7 +13,7 @@ function Footer() {
                     <h2>Zwallet</h2>
                     <h6>Simplify financial needs and saving<br /> much time in banking needs with<br /> one single app.</h6>
                     <hr />
-                    <div className="d-flex">
+                    <div className={[["d-flex"], style["title-footer"]].join(" ")}>
                         <p>2021 Zwallet. All right reserved.</p>
                         <p className={style['subtext-footer']}>+62563788829901</p>
                         <p className={style['subtext-footers']}>contact@zwallet.com</p>
@@ -27,6 +27,13 @@ function Footer() {
         <>
             <footer className={style['footer-login']}>
                 <div className="container d-flex">
+                    <span>2021 Zwallet. All right reserved.</span>
+                    <p>+62 5637 8882 9901</p>
+                    <p>contact@zwallet.com</p>
+                </div>
+            </footer>
+            <footer className={style['footer-login-mobile']}>
+                <div className="container ">
                     <span>2021 Zwallet. All right reserved.</span>
                     <p>+62 5637 8882 9901</p>
                     <p>contact@zwallet.com</p>

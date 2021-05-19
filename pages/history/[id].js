@@ -8,10 +8,12 @@ import axios from 'axios';
 import style from '../../styles/history.module.css'
 import { useRouter } from 'next/router'
 import moment from 'moment';
+moment.locale('id');
 
 
 
 export default function index({ details }) {
+
     return (
         <Layout title="History | Z-wallet" >
             <Navbar />
@@ -34,7 +36,7 @@ export default function index({ details }) {
                             </div>
                             <div className={style['detail-transfer']}>
                                 <span>Date & time</span>
-                                <p>{moment().toDate().getTime()}</p>
+                                <p>{moment(`${details.createdAt}`).format('LLLL')}</p>
                             </div>
                             <div className={style['detail-transfer']}>
                                 <span>Notes</span>

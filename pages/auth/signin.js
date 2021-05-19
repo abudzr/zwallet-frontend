@@ -1,11 +1,11 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import Image from 'next/image'
 import style from '../../styles/signin.module.css'
 import { faEnvelope, faLock, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios';
+import Swal from 'sweetalert2'
 
 export default function Signin() {
     const router = useRouter()
@@ -36,10 +36,15 @@ export default function Signin() {
                     router.push('/home')
                 }
             })
-            .catch(err => {
-                console.log(err);
-            })
+            .catch((err) => {
+                Swal.fire("Something Error!", err, "error");
+            });
     }
+    useEffect(() => {
+        if (localStorage.getItem("token")) {
+            router.push("/home");
+        }
+    }, []);
 
     return (
         <main className={style['main-login']}>

@@ -4,11 +4,14 @@ import style from '../../styles/transfer.module.css'
 import Button from '../../components/module/Button'
 import { useRouter } from 'next/router'
 import moment from 'moment';
+moment.locale('id');
+import Rupiah from '../../helper/rupiah'
 
 function PartTransfer() {
     const router = useRouter();
     const [name, setName] = useState("");
     const [result, setResult] = useState(false);
+    const [search, setSearch] = useState(false);
     const [showresult, setShowresult] = useState(false);
     const [showConfirmation, setShowConfirmation] = useState(false);
     const [showSuccess, setShowSuccess] = useState(false);
@@ -18,6 +21,7 @@ function PartTransfer() {
     const [dataReceiver, setDataReceiver] = useState([]);
     const [user, setUser] = useState([]);
     const [select, setSelect] = useState(false)
+    const date = new Date()
     const [data, setData] = useState({
         idUser: "",
         idReceiver: "",
@@ -46,12 +50,18 @@ function PartTransfer() {
             .then((res) => {
                 if (event.target.value === "") {
                     setResult(false);
+                    setSearch(false)
+
                 } else {
+                    setSearch(false)
                     setResult(true);
                 }
                 setUser(res.data.data);
             })
-
+            .catch((err) => {
+                setSearch(true)
+                setResult(false);
+            })
     };
     // get data by id 
     const handleClickUser = (data) => {
@@ -141,7 +151,7 @@ function PartTransfer() {
         <div className={style['card-transfer']}>
             <div className="container">
                 {/* step 1 */}
-                {select == false && (
+                {select === false && (
                     <>
                         <p className={style['title-transfer']}>Search Receiver</p>
                         <form className="mt-4">
@@ -166,6 +176,15 @@ function PartTransfer() {
                 )
 
                 }
+                {search === true && (
+                    <>
+                        <div className="container text-center mt-5 ">
+                            <p className="mb-4">please enter the data correctly</p>
+                            <img className={style["img-nodata"]} src="/images/nodata.svg" alt="nodata img" />
+                            <p className="mt-4">The recipient you are looking for was not found</p>
+                        </div>
+                    </>
+                )}
                 {result === true &&
                     user.map((item, index) => {
                         return (
@@ -225,12 +244,12 @@ press continue to the next steps.</p>
                                     )}
                                     name="amount"
                                     id="amount"
-                                    placeholder="0.00"
+                                    placeholder={Rupiah('0')}
                                     onChange={handleChangeTransfer}
                                 />
                             </div>
                         </form>
-                        <p className={style.credit}>Rp{dataIsLogin.credit} Available</p>
+                        <p className={style.credit}>{Rupiah(`Rp${dataIsLogin.credit}`)} Available</p>
                         <div className="d-flex justify-content-center">
                             <form>
                                 <img
@@ -281,15 +300,15 @@ press continue to the next steps.</p>
                         <p className={[["mt-4"], style['title-transfer']].join(" ")}>Detail</p>
                         <div className={style['detail-transfer']}>
                             <span>Amount</span>
-                            <p>Rp.{data.amount}</p>
+                            <p>{Rupiah(`Rp.${data.amount}`)}</p>
                         </div>
                         <div className={style['detail-transfer']}>
                             <span>Balance Left</span>
-                            <p>Rp.{dataIsLogin.credit - data.amount}</p>
+                            <p>{Rupiah(`Rp.${dataIsLogin.credit - data.amount}`)}</p>
                         </div>
                         <div className={style['detail-transfer']}>
                             <span>Date & time</span>
-                            <p>{moment().toDate().getTime()}</p>
+                            <p>{moment(date).format('LLLL')}</p>
                         </div>
                         <div className={style['detail-transfer']}>
                             <span>Notes</span>
@@ -388,7 +407,7 @@ press continue to the next steps.</p>
                         </div>
                         <div className={style['detail-transfer']}>
                             <span>Date & time</span>
-                            <p>{moment().toDate().getTime()}</p>
+                            <p>{moment(date).format('LLLL')}</p>
                         </div>
                         <div className={style['detail-transfer']}>
                             <span>Notes</span>
@@ -458,7 +477,7 @@ press continue to the next steps.</p>
                         </div>
                         <div className={style['detail-transfer']}>
                             <span>Date & time</span>
-                            <p>{moment().toDate().getTime()}</p>
+                            <p>{moment(date).format('LLLL')}</p>
                         </div>
                         <div className={style['detail-transfer']}>
                             <span>Notes</span>

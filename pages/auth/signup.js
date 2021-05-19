@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import style from '../../styles/signup.module.css'
@@ -47,7 +47,11 @@ export default function Signup() {
                 Swal.fire("Something Error!", err, "error");
             });
     }
-
+    useEffect(() => {
+        if (localStorage.getItem("token")) {
+            router.push("/home");
+        }
+    }, []);
     return (
         <main className={style['main-signup']}>
 

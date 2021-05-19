@@ -65,7 +65,7 @@
 
 .main-chart {
     height: 468px;
-    width: 420px;
+    width: 100%;
     margin-right: 10px;
     border-radius: 25px;
     padding-top: 20px;
@@ -124,7 +124,7 @@
     font-size: 18px;
     line-height: 25px;
     color: #3A3D42;
-    margin-right: 90px;
+    margin-right: 120px;
 }
 
 .main-history h4 {
@@ -195,4 +195,66 @@
 
 .text-history-home {
     margin-left: -100px;
+}
+
+@media (max-width:576px) {
+
+    .header-home {
+        padding-top: 30px;
+        padding-left: 20px;
+        width: 100%;
+    }
+
+    .header-home h1 {
+        font-size: 25px;
+        line-height: 55px;
+    }
+
+    .header-home h6 {
+        font-size: 16px;
+        line-height: 25px;
+    }
+
+    .header-home p {
+        font-size: 12px;
+    }
+
+    .card-header {
+        margin-left: 40px;
+    }
+
+    /* history */
+    .main-history {
+        margin-top: 30px;
+        width: 100%;
+    }
+
+    .main-history h3 {
+        margin-right: 150px;
+    }
+
+}
+
+@media (min-width:576px) and (max-width:768px) {
+
+    .header-home {
+        padding-top: 30px;
+        padding-left: 20px;
+        width: 100%;
+    }
+
+    .card-header {
+        margin-left: 140px;
+    }
+
+    .main-history {
+        margin-top: 30px;
+        width: 100%;
+    }
+
+
+    .main-history h3 {
+        margin-right: 350px;
+    }
+
 }

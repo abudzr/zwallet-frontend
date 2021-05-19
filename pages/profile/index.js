@@ -2,9 +2,7 @@ import Sidebar from '../../components/module/Sidebar'
 import style from '../../styles/profile.module.css'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import Image from 'next/image'
 import Button from '../../components/module/Button'
-// import PersonalInfo from '../../parts/Profile/PersonalInformation'
 import Layout from '../../components/base/Layout'
 import React, { useEffect, useState, useRef } from 'react'
 import axios from 'axios';
@@ -12,6 +10,7 @@ import { useRouter } from 'next/router'
 import Navbar from '../../components/module/Navbar'
 import Footer from '../../components/module/Footer'
 import Swal from 'sweetalert2'
+import withAuth from '../../helper/authNext'
 
 function Profile() {
     const router = useRouter()
@@ -225,4 +224,4 @@ function Profile() {
     )
 }
 
-export default Profile
+export default withAuth(Profile)

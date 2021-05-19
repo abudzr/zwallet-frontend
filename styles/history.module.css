@@ -1,7 +1,8 @@
 .card-history {
     padding-top: 30px;
     padding-left: 30px;
-    height: 878px;
+    padding-bottom: 30px;
+    height: 100%;
     width: 700px;
     border-radius: 25px;
     background: #FFFFFF;
@@ -128,4 +129,51 @@
     font-size: 16px;
     line-height: 22px;
     color: #7A7886;
+}
+
+@media (max-width:576px) {
+    .card-history {
+        padding-bottom: 30px;
+        height: 100%;
+        width: 100%;
+        padding-right: 20px;
+    }
+
+    .card-transaction-history,
+    .detail-transfer,
+    .form-users {
+        width: 100%;
+    }
+
+    .text-transaction {
+        margin-left: -10px;
+    }
+
+    .detail-transfer {
+        height: max-content;
+    }
+}
+
+@media (min-width:576px) and (max-width:768px) {
+    .card-history {
+        padding-bottom: 30px;
+        height: 100%;
+        width: 100%;
+        padding-right: 20px;
+    }
+
+    .card-transaction-history,
+    .detail-transfer,
+    .form-users {
+        width: 100%;
+    }
+
+    .text-transaction {
+        margin-left: -10px;
+    }
+
+    .detail-transfer {
+        height: max-content;
+    }
+
 }

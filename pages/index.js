@@ -1,6 +1,8 @@
 import Layout from '../components/base/Layout'
 import Button from '../components/module/Button'
 import style from '../styles/landing.module.css'
+import React, { useEffect } from 'react'
+import { useRouter } from 'next/router'
 import Navbar from '../components/module/Navbar'
 import Footer from '../components/module/Footer'
 import Image from 'next/image'
@@ -8,6 +10,13 @@ import { faLock, faDownload, faPhone } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function Home() {
+  const router = useRouter();
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      router.push("/home");
+    }
+  }, []);
 
   return (
     <Layout title="Landing Page | Z-wallet" >

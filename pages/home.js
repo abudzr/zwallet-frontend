@@ -1,12 +1,10 @@
 import Layout from '../components/base/Layout'
-// import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import Sidebar from '../components/module/Sidebar'
 import style from '../styles/home.module.css'
 import { faPlus, faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
-import Image from 'next/image'
 import { useRouter } from 'next/router'
 import axios from 'axios'
 import {
@@ -17,8 +15,8 @@ import {
 } from 'recharts';
 import Navbar from '../components/module/Navbar'
 import Footer from '../components/module/Footer'
-
-
+import withAuth from '../helper/authNext'
+import Rupiah from '../helper/rupiah'
 const data = [
     {
         name: "Sat",
@@ -163,18 +161,18 @@ function Home() {
 
             <div className="container">
                 <div className="row">
-                    <div className="col-lg-4">
+                    <div className="col-lg-4 col-12">
                         <Sidebar />
                     </div>
-                    <div className="col-lg-8">
+                    <div className="col-lg-8 col-12">
                         <div className={style['header-home']}>
                             <div className="row">
-                                <div className="col-lg-8">
+                                <div className="col-lg-8 col-4 col-md-4">
                                     <h6>Balance</h6>
-                                    <h1>Rp.{user.credit}</h1>
+                                    <h1>{Rupiah(`Rp.${user.credit}`)}</h1>
                                     <p>{user.phoneNumber}</p>
                                 </div>
-                                <div className="col-lg-4">
+                                <div className="col-lg-4 col-8 col-md-8">
                                     <div className={style['card-header']}>
                                         <FontAwesomeIcon icon={faArrowUp} className={style.iconHeader} />
                                         <Link href="/transfer">
@@ -191,64 +189,69 @@ function Home() {
                             </div>
                         </div>
                         <div className={style['main-home']}>
-                            <div className="d-flex">
-                                <div className={style["main-chart"]}>
-                                    <div className="d-flex mb-5">
-                                        <div className={style['income-chart']}>
-                                            <FontAwesomeIcon icon={faArrowDown} className={style.iconIncome} />
-                                            <p>Income</p>
-                                            <h2>{income.income == undefined ? "Rp.0" : `Rp.${income.income}`}</h2>
+                            <div className="row">
+                                <div className="col-lg-6 col-12">
+                                    <div className={style["main-chart"]}>
+                                        <div className="d-flex mb-5">
+                                            <div className={style['income-chart']}>
+                                                <FontAwesomeIcon icon={faArrowDown} className={style.iconIncome} />
+                                                <p>Income</p>
+                                                <h2>{income.income == undefined ? "Rp.0" : Rupiah(`Rp.${income.income}`)}</h2>
 
-                                        </div>
-                                        <div className={style['expense-chart']}>
-                                            <FontAwesomeIcon icon={faArrowUp} className={style.iconExpense} />
-                                            <p>Expense</p>
-                                            <h2>{expense.expense == undefined ? "Rp.0" : `Rp.${expense.expense}`}</h2>
-
-                                        </div>
-                                    </div>
-                                    <ResponsiveContainer width="95%" height="50%">
-                                        <BarChart width={120} height={40} data={data}>
-                                            <XAxis dataKey="name" />
-                                            <Bar dataKey="income" fill="#6379F4" radius={20} />
-                                            <Bar dataKey="outcome" fill="#9DA6B5" radius={20} />
-
-                                        </BarChart>
-                                    </ResponsiveContainer>
-                                </div>
-                                {/* History */}
-                                <div className={style["main-history"]}>
-                                    <div className="d-flex">
-                                        <h3>Transaction History</h3>
-                                        <h4 onClick={handleHistory}>See all</h4>
-                                    </div>
-                                    {history.map((item, index) => {
-                                        return (
-                                            <div className="d-flex mb-3 justify-content-between" key={index}>
-                                                <img
-                                                    src={`${process.env.api_img}${item.image}`}
-                                                    alt="Picture feature"
-                                                    width={56}
-                                                    height={56}
-                                                />
-                                                <div className={style['text-history-home']}>
-                                                    <h5>{item.firstname}</h5>
-                                                    <p>{item.type}</p>
-                                                </div>
-                                                <div>
-                                                    <h6 className={`${item.type === "Transfer" ? style['amount-transfer'] : style['amount-receiver']}`} >
-                                                        {
-                                                            item.type === "Transfer"
-                                                                ? `-Rp${item.amount}`
-                                                                : `+Rp${item.amount}`
-                                                        }
-                                                    </h6>
-                                                </div>
                                             </div>
+                                            <div className={style['expense-chart']}>
+                                                <FontAwesomeIcon icon={faArrowUp} className={style.iconExpense} />
+                                                <p>Expense</p>
+                                                <h2>{expense.expense == undefined ? "Rp.0" : Rupiah(`Rp.${expense.expense}`)}</h2>
 
-                                        );
-                                    })}
+                                            </div>
+                                        </div>
+                                        <ResponsiveContainer width="95%" height="50%">
+                                            <BarChart width={120} height={40} data={data}>
+                                                <XAxis dataKey="name" />
+                                                <Bar dataKey="income" fill="#6379F4" radius={20} />
+                                                <Bar dataKey="outcome" fill="#9DA6B5" radius={20} />
 
+                                            </BarChart>
+                                        </ResponsiveContainer>
+                                    </div>
+
+                                </div>
+                                <div className="col-lg-6 col-12">
+
+                                    {/* History */}
+                                    <div className={style["main-history"]}>
+                                        <div className="d-flex">
+                                            <h3>Transaction History</h3>
+                                            <h4 onClick={handleHistory}>See all</h4>
+                                        </div>
+                                        {history.map((item, index) => {
+                                            return (
+                                                <div className="d-flex mb-3 justify-content-between" key={index}>
+                                                    <img
+                                                        src={`${process.env.api_img}${item.image}`}
+                                                        alt="Picture feature"
+                                                        width={56}
+                                                        height={56}
+                                                    />
+                                                    <div className={style['text-history-home']}>
+                                                        <h5>{item.firstname}</h5>
+                                                        <p>{item.type}</p>
+                                                    </div>
+                                                    <div>
+                                                        <h6 className={`${item.type === "Transfer" ? style['amount-transfer'] : style['amount-receiver']}`} >
+                                                            {
+                                                                item.type === "Transfer"
+                                                                    ? Rupiah(item.amount)
+                                                                    : Rupiah(item.amount)
+                                                            }
+                                                        </h6>
+                                                    </div>
+                                                </div>
+
+                                            );
+                                        })}
+                                    </div>
                                 </div>
                             </div>
 
@@ -262,4 +265,4 @@ function Home() {
     )
 }
 
-export default Home
+export default withAuth(Home)

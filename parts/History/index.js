@@ -149,8 +149,8 @@ export default function HistoryParts() {
             </div>
             {/* Akhir Pagnisai */}
             {/* awal sorting */}
-            <div className="row mt-5 justify-content-center">
-                <div className="col-3">
+            <div className="row mt-5 ml-1 mr-1 justify-content-center">
+                <div className="col-4">
                     <select
                         onChange={(event) => setQuerySort(event.target.value)}
                         className="w-100 custom-select font-weight-normal"
@@ -164,7 +164,7 @@ export default function HistoryParts() {
                         })}
                     </select>
                 </div>
-                <div className="col-3">
+                <div className="col-4">
                     <select
                         onChange={(event) => {
                             setQueryOrder(event.target.value);
@@ -180,7 +180,7 @@ export default function HistoryParts() {
                         })}
                     </select>
                 </div>
-                <div className="col-3">
+                <div className="col-4">
                     <select
                         onChange={(event) => {
                             setQueryLimit(event.target.value);
