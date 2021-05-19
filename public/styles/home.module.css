@@ -1,0 +1,260 @@
+.header-home {
+    padding-top: 30px;
+    padding-left: 30px;
+    height: 190px;
+    width: 750px;
+    border-radius: 20px;
+    background: #6379F4;
+}
+
+.header-home h1 {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 55px;
+    color: #FFFFFF;
+}
+
+.header-home h6 {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 31px;
+    color: #E0E0E0;
+}
+
+.header-home p {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    color: #DFDCDC;
+}
+
+.card-header {
+    height: 57px;
+    width: 162px;
+    padding-left: 30px;
+    padding-top: 15px;
+    border-radius: 10px;
+    border: 1px solid #FFFFFF;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.card-header a {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+    color: #FFFFFF;
+}
+
+.iconHeader {
+    color: #B5B0ED;
+    margin-right: 20px;
+}
+
+.main-home {
+    margin-top: 50px;
+}
+
+.main-chart {
+    height: 468px;
+    width: 100%;
+    margin-right: 10px;
+    border-radius: 25px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.main-chart p {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    color: #6A6A6A;
+}
+
+.main-chart h2 {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+    color: #3A3D42;
+}
+
+.iconIncome {
+    color: #1EC15F;
+}
+
+.iconExpense {
+    color: #FF5B37;
+}
+
+.income-chart {
+    margin-right: 120px;
+}
+
+/* history */
+.main-history {
+    padding-top: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 468px;
+    width: 367px;
+    border-radius: 25px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.main-history h3 {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+    color: #3A3D42;
+    margin-right: 120px;
+}
+
+.main-history h4 {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    color: #6379F4;
+    cursor: pointer;
+}
+
+.main-history h5 {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+    color: #4D4B57;
+}
+
+.main-history p {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    color: #7A7886;
+}
+
+.main-history h6 {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+    margin-right: 0px;
+}
+
+.income {
+    margin-top: 20px;
+    color: #1EC15F;
+}
+
+.expense {
+    color: #FF5B37;
+}
+
+.amount-transfer {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: right;
+    color: #FF5B37;
+}
+
+.amount-receiver {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: right;
+    color: #1EC15F;
+}
+
+.text-history-home {
+    margin-left: -100px;
+}
+
+@media (max-width:576px) {
+
+    .header-home {
+        padding-top: 30px;
+        padding-left: 20px;
+        width: 100%;
+    }
+
+    .header-home h1 {
+        font-size: 25px;
+        line-height: 55px;
+    }
+
+    .header-home h6 {
+        font-size: 16px;
+        line-height: 25px;
+    }
+
+    .header-home p {
+        font-size: 12px;
+    }
+
+    .card-header {
+        margin-left: 40px;
+    }
+
+    /* history */
+    .main-history {
+        margin-top: 30px;
+        width: 100%;
+    }
+
+    .main-history h3 {
+        margin-right: 150px;
+    }
+
+}
+
+@media (min-width:576px) and (max-width:768px) {
+
+    .header-home {
+        padding-top: 30px;
+        padding-left: 20px;
+        width: 100%;
+    }
+
+    .card-header {
+        margin-left: 140px;
+    }
+
+    .main-history {
+        margin-top: 30px;
+        width: 100%;
+    }
+
+
+    .main-history h3 {
+        margin-right: 350px;
+    }
+
+}
