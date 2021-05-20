@@ -6,12 +6,12 @@
 
 ## ✏️ About
 
-Tickitz merupakan aplikasi pemesanan tiket berbasis website. Memiliki fitur untuk memesan tiket sesuai jadwal yang dipilih secara online tanpa harus memesan tiket secara langsung. Aplikasi ini menggunakan ReactJs, NodeJS dan ExpressJs.
+Zwallet is a digital wallet application that simplifies your financial needs and can save a lot of time on your banking needs with just one application. Zwallet is in the field of digital banking, which is increasingly developing rapidly as technology advances. This application is able to save money, make transfers between users or top up balances.
 
 
 ## 🔖Build With
 - NextJS
-- ExpressJs
+- Redux
 - Bootstrap
 
 ## 💻 How To Install?
