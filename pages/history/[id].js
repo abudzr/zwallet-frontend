@@ -3,6 +3,7 @@ import Layout from '../../components/base/Layout'
 import Sidebar from '../../components/module/Sidebar'
 import Navbar from '../../components/module/Navbar'
 import Footer from '../../components/module/Footer'
+import { useRouter } from "next/router";
 // import DetailTransaction from '../../parts/History/detailHistory'
 import axios from 'axios';
 import style from '../../styles/history.module.css'
@@ -13,7 +14,10 @@ moment.locale('id');
 
 
 export default function index({ details }) {
-
+    const router = useRouter();
+    if (router.isFallback) {
+        return <h1>Please wait...</h1>;
+    }
     return (
         <Layout title="History | Z-wallet" >
             <Navbar />
