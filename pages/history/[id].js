@@ -71,10 +71,10 @@ export default function index({ details }) {
 
 
 export const getStaticProps = async (ctx) => {
-    const Url = process.env.api;
+    // const Url = process.env.api;
     try {
         const id = ctx.params.id;
-        const result = await axios.get(`${Url}/transaction/detail/${id}`);
+        const result = await axios.get(`https://be-zwallet.abudzaralghifari.xyz/api/v1/transaction/detail/${id}`);
         const DetailTransaction = result.data.data[0];
         return {
             props: {
@@ -91,8 +91,8 @@ export const getStaticProps = async (ctx) => {
 };
 
 export const getStaticPaths = async () => {
-    const Url = process.env.api;
-    const result = await axios.get(`${Url}/transaction/detail/`);
+    // const Url = process.env.api;
+    const result = await axios.get(`https://be-zwallet.abudzaralghifari.xyz/api/v1/transaction/detail/`);
     const data = result.data.data;
     const paths = data.map((item) => {
         return {
