@@ -100,7 +100,7 @@ export const getStaticPaths = async () => {
         };
     });
     return {
-        fallback: false,
+        fallback: true,
         paths: paths,
     };
 };
