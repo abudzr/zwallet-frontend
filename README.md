@@ -58,4 +58,4 @@ npm install
 ## Link
 
 - [Backend](https://github.com/abudzr/zwallet-backend)
-- [Visit Project](fe-zwallet.vercel.app)
+- [Visit Project](https://fe-zwallet.vercel.app)
