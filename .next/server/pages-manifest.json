@@ -3,6 +3,5 @@
   "/_document": "pages/_document.js",
   "/_error": "pages/_error.js",
   "/history": "pages/history.js",
-  "/profile": "pages/profile.js",
-  "/profile/personal-info": "pages/profile/personal-info.js"
+  "/profile": "pages/profile.js"
 }
