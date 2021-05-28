@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import axios from 'axios';
 import style from '../../styles/transfer.module.css'
 import Button from '../../components/module/Button'
 import { useRouter } from 'next/router'
 import moment from 'moment';
-moment.locale('id');
+moment.locale('en');
 import Rupiah from '../../helper/rupiah'
+import { exportComponentAsJPEG } from "react-component-export-image"
+import InputPin from "react-pin-input";
 
 function PartTransfer() {
     const router = useRouter();
+    const componentRef = useRef();
     const [name, setName] = useState("");
     const [result, setResult] = useState(false);
     const [search, setSearch] = useState(false);
@@ -22,6 +25,8 @@ function PartTransfer() {
     const [user, setUser] = useState([]);
     const [select, setSelect] = useState(false)
     const date = new Date()
+    const [pin, setPin] = useState(null);
+
     const [data, setData] = useState({
         idUser: "",
         idReceiver: "",
@@ -29,14 +34,18 @@ function PartTransfer() {
         notes: "",
         pin: ""
     });
-    const [pin, setPin] = useState({
-        one: "",
-        two: "",
-        three: "",
-        four: "",
-        five: "",
-        six: "",
-    });
+    // const [pin, setPin] = useState({
+    //     one: "",
+    //     two: "",
+    //     three: "",
+    //     four: "",
+    //     five: "",
+    //     six: "",
+    // });
+    const handlePinChange = (value) => {
+        // console.log(value);
+        setPin(value);
+    }
     // search by name
     const handleFormChange = (event) => {
         setName(event.target.value);
@@ -90,12 +99,12 @@ function PartTransfer() {
         setData(dataNew);
     }
 
-    const handleFormChangePin = (event) => {
-        const dataNew = { ...pin };
-        dataNew[event.target.name] = event.target.value;
-        // console.log(dataNew);
-        setPin(dataNew);
-    };
+    // const handleFormChangePin = (event) => {
+    //     const dataNew = { ...pin };
+    //     dataNew[event.target.name] = event.target.value;
+    //     // console.log(dataNew);
+    //     setPin(dataNew);
+    // };
 
     const handleClickContinue = () => {
         setShowConfirmation(true)
@@ -108,13 +117,13 @@ function PartTransfer() {
 
     const handleConfirm = (event) => {
         event.preventDefault();
-        const pinnumber = `${pin.one}${pin.two}${pin.three}${pin.four}${pin.five}${pin.six}`;
+        // const pinnumber = `${pin.one}${pin.two}${pin.three}${pin.four}${pin.five}${pin.six}`;
         const url = axios.post(`${process.env.api}/transaction/transfer`, {
             idUser: dataIsLogin.id,
             idReceiver: dataIdReceiver,
             amount: data.amount,
             notes: data.notes,
-            pin: pinnumber
+            pin: pin
         })
             .then(res => {
                 setShowSuccess(true)
@@ -330,51 +339,22 @@ press continue to the next steps.</p>
                                     </div>
                                     <div className="modal-body">
                                         <p className={style['sub-title-modal']}>Enter your 6 digits PIN for confirmation to continue transferring money. </p>
-                                        <div className="d-flex justify-content-center">
-                                            <input
-                                                type="text"
-                                                className={[["form-control mt-1"], style["form-pin"]].join(" ")}
-                                                name="one"
-                                                id="one"
-                                                onChange={handleFormChangePin}
-                                            />
-                                            <input
-                                                type="text"
-                                                className={[["form-control mt-1"], style["form-pin"]].join(" ")}
-                                                name="two"
-                                                id="two"
-                                                onChange={handleFormChangePin}
-                                            />
-                                            <input
-                                                type="text"
-                                                className={[["form-control mt-1"], style["form-pin"]].join(" ")}
-                                                name="three"
-                                                id="three"
-                                                onChange={handleFormChangePin}
-                                            />
-                                            <input
-                                                type="text"
-                                                className={[["form-control mt-1"], style["form-pin"]].join(" ")}
-                                                name="four"
-                                                id="four"
-                                                onChange={handleFormChangePin}
-                                            />
-                                            <input
-                                                type="text"
-                                                className={[["form-control mt-1"], style["form-pin"]].join(" ")}
-                                                name="five"
-                                                id="five"
-                                                onChange={handleFormChangePin}
-                                            />
-                                            <input
-                                                type="text"
-                                                className={[["form-control mt-1"], style["form-pin"]].join(" ")}
-                                                name="six"
-                                                id="six"
-                                                onChange={handleFormChangePin}
+                                        {/* <div className="d-flex justify-content-center"> */}
+                                        <div className={style['input-pin']}>
+                                            <InputPin
+                                                length={6}
+                                                secret
+                                                onChange={handlePinChange}
+                                                initialValue=""
+                                                type="numeric"
+                                                inputMode="number"
+                                                autoSelect={true}
+                                                regexCriteria={/^[ A-Za-z0-9_@./#&+-]*$/}
+                                                focus={true}
                                             />
                                         </div>
                                     </div>
+                                    {/* </div> */}
                                     <div className={[["modal-footer"], style["btn-modal"]].join(" ")}>
                                         <Button title="continue" btn="btn-continue" onClick={handleConfirm} />
 
@@ -388,46 +368,48 @@ press continue to the next steps.</p>
                 {/* transfer success */}
                 {showSuccess === true && (
                     <>
-                        <img
-                            src="/images/success.png"
-                            width={70}
-                            height={70}
-                            alt="success"
-                            className={style['success-img']}
-                        />
-                        <p className={style['text-success']}>Transfer Success</p>
-                        <p className={[["mt-4"], style['title-transfer']].join(" ")}>Detail</p>
-                        <div className={style['detail-transfer']}>
-                            <span>Amount</span>
-                            <p>Rp.{data.amount}</p>
-                        </div>
-                        <div className={style['detail-transfer']}>
-                            <span>Balance Left</span>
-                            <p>Rp.{dataIsLogin.credit - data.amount}</p>
-                        </div>
-                        <div className={style['detail-transfer']}>
-                            <span>Date & time</span>
-                            <p>{moment(date).format('LLLL')}</p>
-                        </div>
-                        <div className={style['detail-transfer']}>
-                            <span>Notes</span>
-                            <p>{data.notes}</p>
-                        </div>
-
-                        <p className={style['title-transfer']}>Transfer To</p>
-                        <div className={[["d-flex"], ["align-items-center"], ["py-2"], ["pl-3"], ["mt-4"], style["form-users"]].join(" ")}>
-                            <div className="image">
-                                <img
-                                    src={`${process.env.api_img}${dataReceiver.image}`}
-                                    width={70}
-                                    height={70}
-                                    alt="User"
-                                    className="user"
-                                />
+                        <div ref={componentRef}>
+                            <img
+                                src="/images/success.png"
+                                width={70}
+                                height={70}
+                                alt="success"
+                                className={style['success-img']}
+                            />
+                            <p className={style['text-success']}>Transfer Success</p>
+                            <p className={[["mt-4"], style['title-transfer']].join(" ")}>Detail</p>
+                            <div className={style['detail-transfer']}>
+                                <span>Amount</span>
+                                <p>Rp.{data.amount}</p>
                             </div>
-                            <div className="d-flex flex-column ml-3">
-                                <span className={style.nameSearch}>{dataReceiver.firstname}{dataReceiver.lastname}</span>
-                                <span className={[["mt-1"], style["number-Phone"]].join(" ")}>{dataReceiver.phoneNumber}</span>
+                            <div className={style['detail-transfer']}>
+                                <span>Balance Left</span>
+                                <p>Rp.{dataIsLogin.credit - data.amount}</p>
+                            </div>
+                            <div className={style['detail-transfer']}>
+                                <span>Date & time</span>
+                                <p>{moment(date).format('LLLL')}</p>
+                            </div>
+                            <div className={style['detail-transfer']}>
+                                <span>Notes</span>
+                                <p>{data.notes}</p>
+                            </div>
+
+                            <p className={style['title-transfer']}>Transfer To</p>
+                            <div className={[["d-flex"], ["align-items-center"], ["py-2"], ["pl-3"], ["mt-4"], style["form-users"]].join(" ")}>
+                                <div className="image">
+                                    <img
+                                        src={`${process.env.api_img}${dataReceiver.image}`}
+                                        width={70}
+                                        height={70}
+                                        alt="User"
+                                        className="user"
+                                    />
+                                </div>
+                                <div className="d-flex flex-column ml-3">
+                                    <span className={style.nameSearch}>{dataReceiver.firstname}{dataReceiver.lastname}</span>
+                                    <span className={[["mt-1"], style["number-Phone"]].join(" ")}>{dataReceiver.phoneNumber}</span>
+                                </div>
                             </div>
                         </div>
                         <div className="d-flex justify-content-end">
@@ -449,7 +431,11 @@ press continue to the next steps.</p>
                                     alt="download"
                                     className={style.download}
                                 />
-                                <Button title="Download PDF" btn="btn-download" />
+                                <Button title="Download" btn="btn-download" onClick={() =>
+                                    exportComponentAsJPEG(componentRef, {
+                                        fileName: `tickitz-${new Date().getTime()}`,
+                                    })
+                                } />
                             </div>
                             <Button title="Back To Home" btn="btn-continue" onClick={handleClickHome} />
                         </div>

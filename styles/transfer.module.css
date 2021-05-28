@@ -237,6 +237,12 @@
     color: #7A7886;
 }
 
+.input-pin {
+    /* margin-top: 130px; */
+    display: flex;
+    justify-content: center;
+}
+
 .img-nodata {
     object-fit: cover;
     height: 200px;

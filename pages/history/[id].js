@@ -8,7 +8,7 @@ import axios from 'axios';
 import style from '../../styles/history.module.css'
 import { useRouter } from 'next/router'
 import moment from 'moment';
-moment.locale('id');
+moment.locale('en');
 
 
 

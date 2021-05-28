@@ -25,27 +25,27 @@ const data = [
     },
     {
         name: "Sun",
-        income: "",
+        income: "10000",
         outcome: "20000",
     },
     {
         name: "Mon",
-        income: "",
+        income: "30000",
         outcome: "",
     },
     {
         name: "Tue",
-        income: "",
+        income: "40000",
         outcome: "",
     },
     {
         name: "Wed",
-        income: "",
+        income: "25000",
         outcome: "",
     },
     {
         name: "Thu",
-        income: "",
+        income: "35000",
         outcome: "",
     },
     {

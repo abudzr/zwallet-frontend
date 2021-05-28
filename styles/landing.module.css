@@ -31,7 +31,7 @@ header.landing-page p {
     position: absolute;
     top: -120px;
     height: 658px;
-    width: 100%;
+    width: 100vw;
     background: #6379F4;
     border-radius: 0px 0px 0px 200px;
     z-index: -1;
@@ -44,7 +44,7 @@ header.landing-page p {
 }
 
 .bgHeader {
-    width: 100%;
+    width: 100vw;
     height: 229px;
 }
 
