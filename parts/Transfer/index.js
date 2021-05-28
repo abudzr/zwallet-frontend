@@ -6,7 +6,8 @@ import { useRouter } from 'next/router'
 import moment from 'moment';
 moment.locale('en');
 import Rupiah from '../../helper/rupiah'
-import { exportComponentAsJPEG } from "react-component-export-image"
+import ReactToPrint from "react-to-print";
+// import { exportComponentAsJPEG } from "react-component-export-image"
 import InputPin from "react-pin-input";
 
 function PartTransfer() {
@@ -369,14 +370,16 @@ press continue to the next steps.</p>
                 {/* transfer success */}
                 {showSuccess === true && (
                     <>
-                        <div ref={componentRef}>
-                            <img
-                                src="/images/success.png"
-                                width={70}
-                                height={70}
-                                alt="success"
-                                className={style['success-img']}
-                            />
+                        <div ref={componentRef} >
+                            <div className=" d-flex justify-content-center">
+                                <img
+                                    src="/images/success.png"
+                                    width={70}
+                                    height={70}
+                                    alt="success"
+                                    className={style['success-img']}
+                                />
+                            </div>
                             <p className={style['text-success']}>Transfer Success</p>
                             <p className={[["mt-4"], style['title-transfer']].join(" ")}>Detail</p>
                             <div className={style['detail-transfer']}>
@@ -432,11 +435,18 @@ press continue to the next steps.</p>
                                     alt="download"
                                     className={style.download}
                                 />
-                                <Button title="Download" btn="btn-download" onClick={() =>
+                                {/* onClick={() =>
                                     exportComponentAsJPEG(componentRef, {
                                         fileName: `tickitz-${new Date().getTime()}`,
                                     })
-                                } />
+                                } */}
+                                <ReactToPrint
+                                    trigger={() => (
+                                        <Button title="Download" btn="btn-download" />
+                                    )}
+                                    content={() => componentRef.current}
+                                />
+
                             </div>
                             <Button title="Back To Home" btn="btn-continue" onClick={handleClickHome} />
                         </div>
