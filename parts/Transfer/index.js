@@ -288,6 +288,7 @@ press continue to the next steps.</p>
                 )}
 
                 {/* step 3 */}
+                {/* detail tf */}
                 {showConfirmation === true && (
                     <>
                         <p className={style['title-transfer']}>Transfer To</p>
