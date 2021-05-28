@@ -455,13 +455,16 @@ press continue to the next steps.</p>
                 {/* transfer failed */}
                 {showFailed === true && (
                     <>
-                        <img
-                            src="/images/failed.png"
-                            width={70}
-                            height={70}
-                            alt="failed"
-                            className={style['success-img']}
-                        />
+                        <div className=" d-flex justify-content-center">
+
+                            <img
+                                src="/images/failed.png"
+                                width={70}
+                                height={70}
+                                alt="failed"
+                                className={style['success-img']}
+                            />
+                        </div>
                         <p className={style['text-success']}>Transfer Failed</p>
                         <p className={style['text-fail']}>We can’t transfer your money at the moment, we recommend you to check your<br /> internet connection and try again.</p>
                         <div className={style['detail-transfer']}>
